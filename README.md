@@ -8,6 +8,8 @@ The architecture is similar to CaffeNet, but has differences:
 
 Because LRN layers add nothing to accuracy, they were removed for speed reasons in further experiments.
 
+### BatchNorm evaluation
+
 ![CaffeNet128 test accuracy](/logs/img/0.png)
 
 
@@ -16,7 +18,12 @@ Because LRN layers add nothing to accuracy, they were removed for speed reasons 
 
 ![CaffeNet128 train loss](/logs/img/6.png)
 
+
+### Do we need EltwiseAffine layer?
+
+![CaffeNet128 test accuracy](/logs/img/beforeReLU_ea.png)
+
 TBD: Explore usefullness of BatchNorm+[EltwiseAffine](https://github.com/BVLC/caffe/pull/2996) combination
 
-P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Accuracy vs. seconds" will give weird results. 
+P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Anything vs. seconds" will give weird results. 
 
