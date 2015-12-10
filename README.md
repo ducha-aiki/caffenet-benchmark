@@ -1,5 +1,9 @@
 This is quick evaluation of BatchNorm layer (https://github.com/BVLC/caffe/pull/3229) performance on ImageNet-2012. 
 
+Similar on-going evaluations:
+- [activations](https://github.com/ducha-aiki/batchnorm-benchmark/blob/master/Activations.md)
+- [architectures] (https://github.com/ducha-aiki/batchnorm-benchmark/blob/master/Architectures.md)
+
 The architecture is similar to CaffeNet, but has differences:
 
 1. Images are resized to small side = 128 for speed reasons.
@@ -7,6 +11,7 @@ The architecture is similar to CaffeNet, but has differences:
 3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 
 Because LRN layers add nothing to accuracy, they were removed for speed reasons in further experiments.
+
 
 ### BatchNorm evaluation
 
