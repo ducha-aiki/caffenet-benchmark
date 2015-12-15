@@ -36,7 +36,6 @@ As one can see, BN makes differencec between ReLU, ELU and PReLU negligable. It 
 ![CaffeNet128 train loss](/logs/img/bn_act6.png)
 
 
-### Different activations plus BN
 
 ### Do we need EltwiseAffine layer?
 
