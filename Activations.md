@@ -7,6 +7,7 @@ The architecture is similar to CaffeNet, but has differences:
 3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 
 Because LRN layers add nothing to accuracy, they were removed for speed reasons in further experiments.
+*ELU curves is unsmooth because of incorrectly set test set size. However, results from 310K to 320K iterations are obtained with fixed set size
 
 ![CaffeNet128 test accuracy](/logs/activations/img/0.png)
 
@@ -17,6 +18,9 @@ Because LRN layers add nothing to accuracy, they were removed for speed reasons 
 ![CaffeNet128 train loss](/logs/activations/img/6.png)
 
 Previous results on small datasets like CIFAR (see [LSUV-init, Table3](http://arxiv.org/abs/1511.06422)) looks a bit contradictory to ImageNet ones so far.
+
+PReLU, maxout and RReLU training are in progress.
+Maxout net has two linear pieces and each has sqrt(2) less parameters than *ReLU networks, so overall complexity is same.
 
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Accuracy vs. seconds" will give weird results. 
 
