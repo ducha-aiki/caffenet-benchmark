@@ -25,7 +25,8 @@ Because LRN layers add nothing to accuracy, they were removed for speed reasons 
 
 
 ### Different activations plus BN
-As one can see, BN makes differencec between ReLU, ELU and PReLU negligable. It may confirm that main source of VLReLU and ELU advantages is that their output is closer to mean=0, var=1, than standard ReLU.
+As one can see, BN makes difference between ReLU, ELU and PReLU negligable. 
+It may confirm that main source of VLReLU and ELU advantages is that their output is closer to mean=0, var=1, than standard ReLU.
 
 ![CaffeNet128 test accuracy](/logs/img/bn_act0.png)
 
