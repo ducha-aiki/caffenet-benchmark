@@ -37,7 +37,7 @@ It may confirm that main source of VLReLU and ELU advantages is that their outpu
 ![CaffeNet128 train loss](/logs/img/bn_act6.png)
 
 ### Batch Normalization and Dropout
-BN+Dropout = 0.5 is too much regularization. Evaluation in progress: dropout=0.2
+BN+Dropout = 0.5 is too much regularization. Dropout=0.2 is just enough :)
 ![CaffeNet128 test accuracy](/logs/img/bn_dropout0.png)
 
 
