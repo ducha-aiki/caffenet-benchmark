@@ -1,8 +1,9 @@
 This is quick evaluation of BatchNorm layer (https://github.com/BVLC/caffe/pull/3229) performance on ImageNet-2012. 
 
-Similar on-going evaluations:
-- [activations](https://github.com/ducha-aiki/batchnorm-benchmark/blob/master/Activations.md)
-- [architectures] (https://github.com/ducha-aiki/batchnorm-benchmark/blob/master/Architectures.md)
+Other on-going evaluations:
+- [activations](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Activations.md)
+- [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
+- [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
 
 The architecture is similar to CaffeNet, but has differences:
 
