@@ -28,6 +28,60 @@ On-going evaluations with graphs:
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/activations), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/activations)
 
+### Architectures
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| [CaffeNet256](http://arxiv.org/abs/1408.5093) |0.565| 1.87 | Reference BVLC model, LSUV init|
+| [CaffeNet](http://arxiv.org/abs/1408.5093) |0.470| 2.36 | Pool5 = 3x3|
+| [CaffeNetSPP](http://arxiv.org/abs/1406.4729) |0.483| 2.30 | SPP= 3x3 + 2x2 + 1x1 |
+| [HeNet](http://arxiv.org/abs/1412.1710) |**0.561**| **1.88**|No SPP, Pool5 = 3x3, VLReLU |
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/architectures), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/architectures)
+
+### Train augmentation
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Default |0.470| 2.36 | Random flip, random crop 224x224 from 256xN, N > 256|
+| Drop 0.1 |0.306| 3.56 | + Input dropout 10%. not finished, 186K iters result |
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/augmentation), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/augmentation)
+
+## Batch normalization
+[BN-paper](http://arxiv.org/abs/1502.03167), [caffe-PR](https://github.com/BVLC/caffe/pull/3229)
+Note, that results are obtained without mentioned in paper y=kx+b additional layer.
+
+### BN -- before or after ReLU?
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Before |0.474| 2.35 | As in paper|
+| After |**0.499**| **2.21** | |
+
+So in all next expriments, BN is put after non-linearity
+
+
+### BN and activations
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| ReLU |0.499| 2.21 | |
+| RReLU |0.500| 2.20 | |
+| PReLU |**0.503**| **2.19** | |
+| ELU |0.498| 2.23 | |
+
+### BN and dropout
+
+ReLU non-linearity, fc6 and fc7 layer only
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+|  Dropout = 0.5 |0.499| 2.21 |  |
+|  Dropout = 0.2 |**0.527**| **2.09** |  |
+|  Dropout = 0 |0.513| 2.19 | |
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs)
 
 The PRs with test are welcomed
 
