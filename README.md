@@ -1,4 +1,5 @@
-Welcome to evaluation of CNN design choises  performance on ImageNet-2012. 
+Welcome to evaluation of CNN design choises performance on ImageNet-2012. Here you can find prototxt`s of tested nets and full train logs.
+
 The basic architecture is similar to CaffeNet, but has several differences:
 
 1. Images are resized to small side = 128 for speed reasons. Therefore pool5 spatial size is 3x3 instead of 6x6.
