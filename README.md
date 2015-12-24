@@ -1,58 +1,18 @@
-This is quick evaluation of BatchNorm layer (https://github.com/BVLC/caffe/pull/3229) performance on ImageNet-2012. 
+Welcome to evaluation of CNN design choises  performance on ImageNet-2012. 
+The basic architecture is similar to CaffeNet, but has several differences:
 
-Other on-going evaluations:
+1. Images are resized to small side = 128 for speed reasons. Therefore pool5 spatial size is 3x3 instead of 6x6.
+2. fc6 and fc7 layers have 2048 neurons instead of 4096. 
+3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
+4. Because LRN layers add nothing to accuracy (validated [here](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)), they were removed for speed reasons in most experiments.
+
+On-going evaluations with graphs:
 - [activations](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Activations.md)
 - [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
 - [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
+- [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
 
-The architecture is similar to CaffeNet, but has differences:
-
-1. Images are resized to small side = 128 for speed reasons.
-2. fc6 and fc7 layers have 2048 neurons instead of 4096. 
-3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
-
-Because LRN layers add nothing to accuracy, they were removed for speed reasons in further experiments.
-
-
-### BatchNorm evaluation ReLU
-
-![CaffeNet128 test accuracy](/logs/img/0.png)
-
-
-![CaffeNet128 test loss](/logs/img/2.png)
-
-
-![CaffeNet128 train loss](/logs/img/6.png)
-
-
-### Different activations plus BN
-As one can see, BN makes difference between ReLU, ELU and PReLU negligable. 
-It may confirm that main source of VLReLU and ELU advantages is that their output is closer to mean=0, var=1, than standard ReLU.
-
-![CaffeNet128 test accuracy](/logs/img/bn_act0.png)
-
-
-![CaffeNet128 test loss](/logs/img/bn_act2.png)
-
-
-![CaffeNet128 train loss](/logs/img/bn_act6.png)
-
-### Batch Normalization and Dropout
-BN+Dropout = 0.5 is too much regularization. Dropout=0.2 is just enough :)
-![CaffeNet128 test accuracy](/logs/img/bn_dropout0.png)
-
-
-![CaffeNet128 test loss](/logs/img/bn_dropout2.png)
-
-
-![CaffeNet128 train loss](/logs/img/bn_dropout6.png)
-
-
-### Do we need EltwiseAffine layer?
-
-![CaffeNet128 test accuracy](/logs/img/beforeReLU_ea.png)
-
-TBD: Explore usefullness of BatchNorm+[EltwiseAffine](https://github.com/BVLC/caffe/pull/2996) combination
+The PRs with test are welcomed
 
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Anything vs. seconds" will give weird results. 
 
