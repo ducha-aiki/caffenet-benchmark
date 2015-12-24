@@ -17,13 +17,15 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| [ReLU](http://machinelearning.wustl.edu/mlpapers/paper_files/icml2010_NairH10.pdf) |0.470:| 2.36 :|: With LRN layers|
-| ReLU |0.470:| 2.36 :|: No LRN, as in rest |
-| [PReLU](http://arxiv.org/abs/1502.01852) |:0.485:| 2.29 :|: ---------|
-| [VLReLU](https://web.stanford.edu/~awni/papers/relu_hybrid_icml2013_final.pdf) |:0.469:| 2.40:|: y=max(x,x/3)|
-| [RReLU](http://arxiv.org/abs/1505.00853) |:0.478:| 2.32:|: ---------|
-| [ELU](http://arxiv.org/abs/1511.07289) |:0.488:| 2.28:|: ---------|
-| [Maxout](http://arxiv.org/abs/1302.4389) |:0.482:| 2.30:|: sqrt(2) narrower layers|
+| [ReLU](http://machinelearning.wustl.edu/mlpapers/paper_files/icml2010_NairH10.pdf) |0.470| 2.36 | With LRN layers|
+| ReLU |0.470| 2.36 | No LRN, as in rest |
+| [VLReLU](https://web.stanford.edu/~awni/papers/relu_hybrid_icml2013_final.pdf) |0.469| 2.40|y=max(x,x/3)|
+| [RReLU](http://arxiv.org/abs/1505.00853) |0.478| 2.32| |
+| [Maxout](http://arxiv.org/abs/1302.4389) |0.482| 2.30| sqrt(2) narrower layers, 2 pieces|
+| [PReLU](http://arxiv.org/abs/1502.01852) |0.485| 2.29 | |
+| [ELU](http://arxiv.org/abs/1511.07289) |**0.488**| **2.28**| |
+
+
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/activations), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/activations)
 
 
