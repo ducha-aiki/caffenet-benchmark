@@ -36,6 +36,7 @@ On-going evaluations with graphs:
 | [CaffeNet](http://arxiv.org/abs/1408.5093) |0.470| 2.36 | Pool5 = 3x3|
 | [CaffeNetSPP](http://arxiv.org/abs/1406.4729) |0.483| 2.30 | SPP= 3x3 + 2x2 + 1x1 |
 | [HeNet](http://arxiv.org/abs/1412.1710) |**0.561**| **1.88**|No SPP, Pool5 = 3x3, VLReLU |
+| [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.407| 2.80| Huge overfitting, no dropout. First attempt to train, probably smth went wrong |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/architectures), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/architectures)
 
