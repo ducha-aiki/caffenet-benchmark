@@ -59,8 +59,7 @@ Note, that results are obtained without mentioned in paper y=kx+b additional lay
 | Before |0.474| 2.35 | As in paper|
 | After |**0.499**| **2.21** | |
 
-So in all next expriments, BN is put after non-linearity
-
+So in all next experiments, BN is put after non-linearity
 
 ### BN and activations
 
@@ -70,6 +69,7 @@ So in all next expriments, BN is put after non-linearity
 | RReLU |0.500| 2.20 | |
 | PReLU |**0.503**| **2.19** | |
 | ELU |0.498| 2.23 | |
+| Maxout |0.487| 2.28| |
 
 ### BN and dropout
 
