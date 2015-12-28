@@ -9,6 +9,7 @@ The basic architecture is similar to CaffeNet, but has several differences:
 
 On-going evaluations with graphs:
 - [activations](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Activations.md)
+- [pooling](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Pooling.md)
 - [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
 - [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
 - [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
@@ -27,6 +28,16 @@ On-going evaluations with graphs:
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/activations), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/activations)
+
+### Pooling
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| MaxPool |0.470| 2.36 | |
+| [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try withoit Dropout|
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pooling), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
 
 ### Architectures
 
