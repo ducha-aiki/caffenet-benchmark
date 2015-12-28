@@ -57,7 +57,7 @@ On-going evaluations with graphs:
 | -------|---------:| -------:|:-----------|
 | Default |0.470| 2.36 | Random flip, random crop 128x128 from 144xN, N > 144|
 | Drop 0.1 |0.306| 3.56 | + Input dropout 10%. not finished, 186K iters result |
-| Default |0.462| 2.40 | Random flip, random crop 128x128 from ( 144xN, - 50%, 188xN - 20%, 256xN - 20%, 130xN - 10%)
+| Multiscale |0.462| 2.40 | Random flip, random crop 128x128 from ( 144xN, - 50%, 188xN - 20%, 256xN - 20%, 130xN - 10%)
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/augmentation), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/augmentation)
