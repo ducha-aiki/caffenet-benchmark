@@ -10,6 +10,8 @@ The architecture is similar to CaffeNet, but has differences:
 Default augmentation: random crop 224x224 from 256xN image, 50% random horizontal flip.
 Additional augmentations:
 - dropout of input data, dropout_ratio = 0.1
+- multiscale:  
+
 
 
 ![CaffeNet128 test accuracy](/logs/augmentation/img/0.png)
