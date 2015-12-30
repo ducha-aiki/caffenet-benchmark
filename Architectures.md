@@ -10,6 +10,8 @@ The architecture is similar to common ones for ImageNet, but has differences:
 ![CaffeNet128 test accuracy](/logs/architectures/img/2.png)
 ![CaffeNet128 test accuracy](/logs/architectures/img/6.png)
 
+Architectures are selected, that their theoretical and/or practical computational complexity ~ caffenet. Currently, holds for all except HeNet, which is slower in practice. 
+
 Architectures tested:
 
 1. CaffeNet (pool5 size = 3x3)
