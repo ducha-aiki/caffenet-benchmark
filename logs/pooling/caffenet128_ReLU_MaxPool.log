@@ -14,7 +14,7 @@ momentum: 0.9
 weight_decay: 0.0005
 stepsize: 100000
 snapshot: 10000
-snapshot_prefix: snapshots//caffenet128_no_lrn_lsuv"
+snapshot_prefix: "snapshots/caffenet128_no_lrn_lsuv"
 solver_mode: GPU
 device_id: 0
 net_param {
