@@ -7,7 +7,7 @@ The architecture is similar to CaffeNet, but has differences:
 3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 4. No LRN layers.
 
-Default augmentation: random crop 224x224 from 256xN image, 50% random horizontal flip.
+Default augmentation: random crop 128x128 from 144xN image, 50% random horizontal flip.
 Additional augmentations:
 - dropout of input data, dropout_ratio = 0.1
 - multiscale:  
