@@ -33,10 +33,9 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool |0.470| 2.36 | |
+| MaxPool |**0.470**| **2.36** | |
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
 | AvgPool |0.435| 2.56 | |
-
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pooling), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
@@ -59,7 +58,7 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| Default |0.470| 2.36 | Random flip, random crop 128x128 from 144xN, N > 144|
+| Default |**0.470**| **2.36** | Random flip, random crop 128x128 from 144xN, N > 144|
 | Drop 0.1 |0.306| 3.56 | + Input dropout 10%. not finished, 186K iters result |
 | Multiscale |0.462| 2.40 | Random flip, random crop 128x128 from ( 144xN, - 50%, 188xN - 20%, 256xN - 20%, 130xN - 10%)
 
