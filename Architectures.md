@@ -19,7 +19,8 @@ Architectures tested:
 3. CaffeNetSPP, single scale training (SPP pool5 = 3x3 + 2x2 + 1x1) [Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition](http://arxiv.org/abs/1406.4729)]
 4. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) with BN, 1st attempt
 5. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) without BN, less stride in first layer but thinner than (4), 2nd attempt
-6. TBD
+6. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) as 5, but lr=0.05 until 25K iterations.
+7. TBD
 
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Accuracy vs. seconds" will give weird results. 
 
