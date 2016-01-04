@@ -10,6 +10,7 @@ The basic architecture is similar to CaffeNet, but has several differences:
 On-going evaluations with graphs:
 - [activations](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Activations.md)
 - [pooling](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Pooling.md)
+- [solvers](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Solvers.md)
 - [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
 - [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
 - [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
@@ -39,6 +40,18 @@ On-going evaluations with graphs:
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pooling), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
+
+
+### Solvers
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| SGD with momentum |0.470| 2.36 | |
+| Nesterov |**0.473**| **2.34**|  |
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/solvers), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/solvers)
+
 
 ### Architectures
 
