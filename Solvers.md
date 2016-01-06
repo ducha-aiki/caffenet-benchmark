@@ -28,5 +28,8 @@ power: 0.5
 ![CaffeNet128 test loss](/logs/solvers/img/2.png)
 
 
+![CaffeNet128 train loss](/logs/solvers/img/4.png)
+
+
 ![CaffeNet128 train loss](/logs/solvers/img/6.png)
 
