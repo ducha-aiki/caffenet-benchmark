@@ -47,8 +47,10 @@ On-going evaluations with graphs:
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | SGD with momentum |0.470| 2.36 | |
-| Nesterov |**0.473**| **2.34**|  |
+| Nesterov |0.473| 2.34|  |
+| SGD with momentum, poly lr |**0.483**| **2.29** | All the way worse than "step", leading at finish |
 
+SGD with momentum, poly == bvlc_googlenet_quick_solver
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/solvers), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/solvers)
 

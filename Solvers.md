@@ -18,6 +18,10 @@ gamma: 0.1
 momentum: 0.9
 weight_decay: 0.0005
 
+"Poly" == bvlc_googlenet_quick_solver
+lr_policy: "poly"
+power: 0.5
+
 ![CaffeNet128 test accuracy](/logs/solvers/img/0.png)
 
 
