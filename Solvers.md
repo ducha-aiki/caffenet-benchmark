@@ -18,9 +18,15 @@ gamma: 0.1
 momentum: 0.9
 weight_decay: 0.0005
 
-"Poly" == bvlc_googlenet_quick_solver
+"Poly0.5" == bvlc_googlenet_quick_solver
 lr_policy: "poly"
 power: 0.5
+
+"Poly2" == bvlc_googlenet_quick_solver
+lr_policy: "poly"
+power: 2.0
+
+See learning_rate graph
 
 ![CaffeNet128 test accuracy](/logs/solvers/img/0.png)
 
@@ -28,7 +34,7 @@ power: 0.5
 ![CaffeNet128 test loss](/logs/solvers/img/2.png)
 
 
-![CaffeNet128 train loss](/logs/solvers/img/4.png)
+![CaffeNet128 lr_rate](/logs/solvers/img/4.png)
 
 
 ![CaffeNet128 train loss](/logs/solvers/img/6.png)
