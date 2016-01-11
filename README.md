@@ -11,6 +11,7 @@ On-going evaluations with graphs:
 - [activations](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Activations.md)
 - [pooling](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Pooling.md)
 - [solvers](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Solvers.md)
+- [lr_policy](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Lr_policy.md)
 - [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
 - [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
 - [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
@@ -47,13 +48,20 @@ On-going evaluations with graphs:
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | SGD with momentum |0.470| 2.36 | |
-| Nesterov |0.473| 2.34|  |
-| SGD with momentum, poly lr, p=0.5 |**0.483**| **2.29** | All the way worse than "step", leading at finish |
-| SGD with momentum, poly lr, p=2.0 |**0.483**| 2.299 | |
-
-SGD with momentum, poly, p=0.5 == bvlc_googlenet_quick_solver
+| Nesterov |**0.473**|** 2.34**|  |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/solvers), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/solvers)
+### LR-policy
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Step 100K |0.470| 2.36 | Default caffenet solver |
+| Poly lr, p=0.5, sqrt |0.483| 2.29 | bvlc_quick_googlenet_solver, All the way worse than "step", leading at finish |
+| Poly lr, p=2.0, sqr |0.483| 2.299 | |
+| Poly lr, p=1.0, linear |**0.493**| 2.24 | |
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/lr_policy), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/lr_policy)
 
 
 ### Architectures
