@@ -58,7 +58,7 @@ On-going evaluations with graphs:
 | Step 100K |0.470| 2.36 | Default caffenet solver |
 | Poly lr, p=0.5, sqrt |0.483| 2.29 | bvlc_quick_googlenet_solver, All the way worse than "step", leading at finish |
 | Poly lr, p=2.0, sqr |0.483| 2.299 | |
-| Poly lr, p=1.0, linear |**0.493**| 2.24 | |
+| Poly lr, p=1.0, linear |**0.493**|***2.24*** | |
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/lr_policy), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/lr_policy)
