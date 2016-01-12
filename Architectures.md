@@ -7,8 +7,8 @@ The architecture is similar to common ones for ImageNet, but has differences:
 
 
 ![CaffeNet128 test accuracy](/logs/architectures/img/0.png)
-![CaffeNet128 test accuracy](/logs/architectures/img/2.png)
-![CaffeNet128 test accuracy](/logs/architectures/img/6.png)
+![CaffeNet128 test loss](/logs/architectures/img/2.png)
+![CaffeNet128 train loss](/logs/architectures/img/6.png)
 
 Architectures are selected, that their theoretical and/or practical computational complexity ~ caffenet. Currently, holds for all except HeNet, which is slower in practice. 
 
@@ -21,6 +21,14 @@ Architectures tested:
 5. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) without BN, less stride in first layer but thinner than (4), 2nd attempt
 6. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) as 5, but lr=0.05 until 25K iterations.
 7. TBD
+
+*** Contib 
+Base net here is caffenet+BN+PReLU+dropout=0.2
+![CaffeNet128 test accuracy](/logs/contrib/img/0.png)
+![CaffeNet128 test loss](/logs/contrib/img/2.png)
+![CaffeNet128 lr_rate](/logs/contrib/img/2.png)
+![CaffeNet128 train loss](/logs/contrib/img/6.png)
+
 
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Accuracy vs. seconds" will give weird results. 
 

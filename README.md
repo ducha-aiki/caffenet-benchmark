@@ -124,7 +124,22 @@ ReLU non-linearity, fc6 and fc7 layer only
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs)
 
+
+### From contributors
+
+Base net is caffenet+BN+ReLU+drop=0.2
+There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+|  Base |0.527| 2.09 |  |
+|  Base_dereviy|0.550| 1.93 | PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->3x3+3x3 |
+|  Base_dereviy|0.553| 1.92 | PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->1x3+1x3+3x1+1x3 |
+|  Base_dereviy|0.540| 2.00 | PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->1x5+5x1 |
+
 The PRs with test are welcomed
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/contrib), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib)
 
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Anything vs. seconds" will give weird results. 
 
