@@ -97,7 +97,9 @@ Note, that results are obtained without mentioned in paper y=kx+b additional lay
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | Before |0.474| 2.35 | As in paper|
+| Before + scale&bias layer |0.478| 2.33 | As in paper|
 | After |**0.499**| **2.21** | |
+| After + scale&bias layer |-| - | In progress|
 
 So in all next experiments, BN is put after non-linearity
 
