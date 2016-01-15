@@ -51,14 +51,17 @@ On-going evaluations with graphs:
 | Nesterov |**0.473**|** 2.34**|  |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/solvers), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/solvers)
+
 ### LR-policy
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| Step 100K |0.470| 2.36 | Default caffenet solver |
+| Step 100K |0.470| 2.36 | Default caffenet solver, max_iter=320K |
 | Poly lr, p=0.5, sqrt |0.483| 2.29 | bvlc_quick_googlenet_solver, All the way worse than "step", leading at finish |
 | Poly lr, p=2.0, sqr |0.483| 2.299 | |
 | Poly lr, p=1.0, linear |**0.493**|***2.24*** | |
+| Poly lr, p=1.0, linear |0.466|2.39 | max_iter=160K|
+
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/lr_policy), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/lr_policy)

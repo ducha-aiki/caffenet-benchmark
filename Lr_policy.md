@@ -29,6 +29,10 @@ power: 2.0
 lr_policy: "poly"
 power: 1.0
 
+"Linear_2x_faster"
+max_iter: 160000
+
+
 See learning_rate graph
 
 ![CaffeNet128 test accuracy](/logs/lr_policy/img/0.png)
