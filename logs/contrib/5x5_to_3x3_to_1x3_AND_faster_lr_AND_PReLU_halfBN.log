@@ -2000,7 +2000,7 @@ I0114 02:49:58.012758  2859 solver.cpp:288] Solving CaffeNet
 I0114 02:49:58.012771  2859 solver.cpp:289] Learning Rate Policy: step
 I0114 02:49:58.014422  2859 solver.cpp:341] Iteration 0, Testing net (#0)
 I0114 02:50:18.091994  2859 solver.cpp:409]     Test net output #0: accuracy = 0.00102
-I0114 02:50:18.092031  2859 solver.cpp:409]     Test net output #1: loss = 87.2472 (* 1 = 87.2472 loss)
+I0114 02:50:18.092031  2859 solver.cpp:409]     Test net output #1: loss = 6.9131 (* 1 = 87.2472 loss)
 I0114 02:50:18.432696  2859 solver.cpp:237] Iteration 0, loss = 6.9131
 I0114 02:50:18.432723  2859 solver.cpp:253]     Train net output #0: loss = 6.9131 (* 1 = 6.9131 loss)
 I0114 02:50:18.432736  2859 sgd_solver.cpp:106] Iteration 0, lr = 0.035
