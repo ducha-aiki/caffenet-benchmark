@@ -48,7 +48,7 @@ On-going evaluations with graphs:
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | SGD with momentum |0.470| 2.36 | |
-| Nesterov |**0.473**|** 2.34**|  |
+| Nesterov |**0.473**|**2.34**|  |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/solvers), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/solvers)
 
