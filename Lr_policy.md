@@ -32,6 +32,12 @@ power: 1.0
 "Linear_2x_faster"
 max_iter: 160000
 
+"0035_exp_160K"
+max_iter: 160000
+base_lr: 0.035
+lr_policy: "step"
+stepsize: 2000
+gamma: 0.915
 
 See learning_rate graph
 

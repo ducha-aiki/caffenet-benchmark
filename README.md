@@ -61,6 +61,7 @@ On-going evaluations with graphs:
 | Poly lr, p=2.0, sqr |0.483| 2.299 | |
 | Poly lr, p=1.0, linear |**0.493**|***2.24*** | |
 | Poly lr, p=1.0, linear |0.466|2.39 | max_iter=160K|
+| Exp, 0.035 |0.441|2.53 | max_iter=160K, stepsize=2K, gamma=0.915, same as in base_dereyly|
 
 
 
