@@ -52,6 +52,4 @@ BN+Dropout = 0.5 is too much regularization. Dropout=0.2 is just enough :)
 
 ![CaffeNet128 test accuracy](/logs/img/0_EA.png)
 
-TBD: Explore usefullness of BatchNorm+[EltwiseAffine](https://github.com/BVLC/caffe/pull/2996) combination
-
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Anything vs. seconds" will give weird results. 
