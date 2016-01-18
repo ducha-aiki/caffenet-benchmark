@@ -1,4 +1,4 @@
-test_iter: 1000
+test_iter: 250
 test_interval: 1000
 test_initialization: false
 base_lr: 0.01
@@ -13,7 +13,7 @@ snapshot: 10000
 iter_size: 1
 solver_mode: GPU
 solver_type: SGD
-snapshot_prefix: "snapshots/caffenet128_no_lrn_lsuv_bn_after"
+snapshot_prefix: "snapshots1/caffenet128_no_lrn_lsuv_bn_after"
 
 net_param { 
 name: "CaffeNet"
@@ -42,13 +42,13 @@ layer {
       pad_value: 104
       pad_value: 117
       pad_value: 124
-      interp_mode: CUBIC
+      interp_mode: LINEAR
       center_object: false
       max_angle: 0
     }
   }
   data_param {
-    source: "/home/share/storage/datasets/imagenet/lmdb/ilsvrc12_train_lmdb"
+    source: "/home/old-ufo/datasets/imagenet/ilsvrc12_train_shuffle_lmdb"
     backend: LMDB
     batch_size: 256
   }
@@ -78,15 +78,15 @@ layer {
       pad_value: 104
       pad_value: 117
       pad_value: 124
-      interp_mode: CUBIC
+      interp_mode: LINEAR
       center_object: false
       max_angle: 0
     }
   }
   data_param {
-    source: "/home/share/storage/datasets/imagenet/lmdb/ilsvrc12_val_lmdb"   
+    source: "/home/old-ufo/datasets/imagenet/ilsvrc12_val_lmdb" 
     backend: LMDB
-    batch_size: 50
+    batch_size: 200
   }
 }
 layer {

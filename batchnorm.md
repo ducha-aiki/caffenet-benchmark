@@ -50,8 +50,6 @@ BN+Dropout = 0.5 is too much regularization. Dropout=0.2 is just enough :)
 
 ### Do we need EltwiseAffine layer?
 
-![CaffeNet128 test accuracy](/logs/img/beforeReLU_ea.png)
-
-TBD: Explore usefullness of BatchNorm+[EltwiseAffine](https://github.com/BVLC/caffe/pull/2996) combination
+![CaffeNet128 test accuracy](/logs/img/0_EA.png)
 
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Anything vs. seconds" will give weird results. 
