@@ -63,7 +63,7 @@ On-going evaluations with graphs:
 | Poly lr, p=1.0, linear |**0.493**|***2.24*** | |
 | Poly lr, p=1.0, linear |0.466|2.39 | max_iter=160K|
 | Exp, 0.035 |0.441|2.53 | max_iter=160K, stepsize=2K, gamma=0.915, same as in base_dereyly|
-
+| Poly lr, p=1.0, linear |0.496|2.24 | max_iter=105K, BatchNorm|
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/lr_policy), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/lr_policy)
