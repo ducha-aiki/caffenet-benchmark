@@ -65,6 +65,15 @@ On-going evaluations with graphs:
 | Exp, 0.035 |0.441|2.53 | max_iter=160K, stepsize=2K, gamma=0.915, same as in base_dereyly|
 | Poly lr, p=1.0, linear |0.496|2.24 | max_iter=105K, BatchNorm|
 
+#### LR-policy-BatchNorm-Dropout = 0.2
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Step 100K |**0.527**| **2.09** | Default caffenet solver, max_iter=320K |
+| Poly lr, p=1.0, linear |0.496|2.24 | max_iter=105K,|
+| Poly lr, p=1.0, start_lr=0.02 |0.505| 2.21 | max_iter=105K|
+| Exp, 0.035 |0.506| 2.20 | max_iter=160K, stepsize=2K, gamma=0.915, same as in base_dereyly, still in progress|
+
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/lr_policy), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/lr_policy)
 
