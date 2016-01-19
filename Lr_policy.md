@@ -39,6 +39,10 @@ lr_policy: "step"
 stepsize: 2000
 gamma: 0.915
 
+
+"Linear_3x_faster"
+max_iter: 105000
+
 See learning_rate graph
 
 ![CaffeNet128 test accuracy](/logs/lr_policy/img/0.png)
