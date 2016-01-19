@@ -72,7 +72,7 @@ On-going evaluations with graphs:
 | Step 100K |**0.527**| **2.09** | Default caffenet solver, max_iter=320K |
 | Poly lr, p=1.0, linear |0.496|2.24 | max_iter=105K,|
 | Poly lr, p=1.0, start_lr=0.02 |0.505| 2.21 | max_iter=105K|
-| Exp, 0.035 |0.506| 2.20 | max_iter=160K, stepsize=2K, gamma=0.915, same as in base_dereyly, still in progress|
+| Exp, 0.035 |0.506| 2.19 | max_iter=160K, stepsize=2K, gamma=0.915, same as in base_dereyly|
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/lr_policy), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/lr_policy)
