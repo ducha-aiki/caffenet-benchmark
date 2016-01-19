@@ -21,7 +21,7 @@ Architectures tested:
 5. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) without BN, less stride in first layer but thinner than (4), 2nd attempt
 6. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) as 5, but lr=0.05 until 25K iterations.
 7. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) as 5, but with ELU and lr_policy=linear.
-8. TBD
+8. GoogleNet [Going Deeper with Convolutions](http://arxiv.org/abs/1409.4842)
 
 *** Contib 
 Base net here is caffenet+BN+PReLU+dropout=0.2
