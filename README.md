@@ -15,6 +15,8 @@ On-going evaluations with graphs:
 - [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
 - [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
 - [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
+- [colorspace] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Colorspace.md)
+
 
 ### Activations
 
@@ -106,8 +108,24 @@ On-going evaluations with graphs:
 | Drop 0.1 |0.306| 3.56 | + Input dropout 10%. not finished, 186K iters result |
 | Multiscale |0.462| 2.40 | Random flip, random crop 128x128 from ( 144xN, - 50%, 188xN - 20%, 256xN - 20%, 130xN - 10%)
 
-
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/augmentation), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/augmentation)
+
+### Colorspace
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| RGB |0.470| 2.36 | default, no changes |
+| HSV |0.451| 2.46 | default, no changes |
+| Lab |-| - | Doesn`t leave 6.90 loss after 1.5K iters |
+| RGB->10->3 TanH | 0.463| 2.40 | RGB -> conv1x1x10 tanh  ->  conv1x1x3 tanh |
+| RGB->10->3 VlReLU | **0.485** | **2.28** | RGB -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
+| RGB and log(RGB)->10->3 VlReLU | 0.482 | 0.482 | RGB and log (RGB) -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
+| CLAHE| 0.467 | 2.38 | RGB -> LAB -> CLAHE(L)->RGB |
+| NN-Scale |0.467| 2.38 | Nearest neightbor instead of linear interpolation for rescale. Faster, but worse :(|
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/colorspace), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/colorspace)
+
 
 ## Batch normalization
 [BN-paper](http://arxiv.org/abs/1502.03167), [caffe-PR](https://github.com/BVLC/caffe/pull/3229)
