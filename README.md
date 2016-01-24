@@ -53,6 +53,36 @@ On-going evaluations with graphs:
 | SGD with momentum |0.470| 2.36 | |
 | Nesterov |**0.473**|**2.34**|  |
 
+Not converge at all:
+
+ADAM: 
+lr=0.001 m=0.9 m2=0.999 delta=1e-8
+lr=0.001 m=0.95 m2=0.999 delta=1e-8
+lr=0.001 m=0.95 m2=0.999 delta=1e-7
+lr=0.01 m=0.9 m2=0.999 delta=1e-8
+lr=0.01 m=0.9 m2=0.999 delta=1e-7
+lr=0.01 m=0.9 m2=0.999 delta=1e-9
+lr=0.01 m=0.9 m2=0.99 delta=1e-8
+lr=0.01 m=0.9 m2=0.999 delta=1e-8
+lr=0.01 m=0.95 m2=0.999 delta=1e-9
+
+AdaDelta:
+delta: 1e-5
+
+RMSProp, 
+lr=0.01, rms_decay=0.5
+lr=0.01, rms_decay=0.9
+lr=0.01, rms_decay=0.95
+lr=0.01, rms_decay=0.98
+lr=0.001, rms_decay=0.9
+lr=0.001, rms_decay=0.98
+
+Converge, but much worse that SGD:
+Adagrad, lr=0.01, lr=0.02
+AdaDelta: delta: 1e-6, delta: 1e-7, delta: 1e-8
+RMSProp, lr=0.01, rms_decay=0.99
+
+
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/solvers), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/solvers)
 
 ### LR-policy

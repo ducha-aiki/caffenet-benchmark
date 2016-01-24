@@ -18,6 +18,10 @@ gamma: 0.1
 momentum: 0.9
 weight_decay: 0.0005
 
+No luck with: RMSProp, ADAM, AdaDelta, AdaGrad. 
+The best hyperparameters are shown in graphs, the rest doesn`t even start to learn.
+If anyone knows good hyperparameters for adaptive methods (funny, isn`t it?), please, tell me.
+
 lr_policy moved to [Lr_policy.md](Lr_policy.md)
 
 ![CaffeNet128 test accuracy](/logs/solvers/img/0.png)
