@@ -5,14 +5,6 @@ The architecture is similar to common ones for ImageNet, but has differences:
 1. Images are resized to small side = 128 for speed reasons.
 2. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 
-
-![CaffeNet128 test accuracy](/logs/architectures/img/0.png)
-![CaffeNet128 test loss](/logs/architectures/img/2.png)
-![CaffeNet128 train loss](/logs/architectures/img/6.png)
-
-Architectures are selected, that their theoretical and/or practical computational complexity ~ caffenet. Currently, holds for all except HeNet, which is slower in practice. 
-
-
 ### Architectures
 
 | Name    | Accuracy      | LogLoss | Comments  |
@@ -43,6 +35,13 @@ Architectures tested:
 6. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) as 5, but lr=0.05 until 25K iterations.
 7. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) as 5, but with ELU and lr_policy=linear.
 8. GoogleNet [Going Deeper with Convolutions](http://arxiv.org/abs/1409.4842)
+
+![CaffeNet128 test accuracy](/logs/architectures/img/0.png)
+![CaffeNet128 test loss](/logs/architectures/img/2.png)
+![CaffeNet128 train loss](/logs/architectures/img/6.png)
+
+Architectures are selected, that their theoretical and/or practical computational complexity ~ caffenet. Currently, holds for all except HeNet, which is slower in practice. 
+
 
 *** Contib 
 Base net here is caffenet+BN+PReLU+dropout=0.2
