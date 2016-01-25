@@ -6,6 +6,21 @@ The architecture is similar to CaffeNet, but has differences:
 2. fc6 and fc7 layers have 2048 neurons instead of 4096. 
 3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 
+
+### Pooling
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| MaxPool |0.470| 2.36 | |
+| [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
+| AvgPool |0.435| 2.56 | |
+| Max+AvgPool |**0.483**| **2.29** | Element-wise sum|
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pooling), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
+
+
+
 ![CaffeNet128 test accuracy](/logs/pooling/img/0.png)
 
 

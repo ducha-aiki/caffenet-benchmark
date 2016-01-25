@@ -14,6 +14,44 @@ The architecture is similar to CaffeNet, but has differences:
 Because LRN layers add nothing to accuracy, they were removed for speed reasons in further experiments.
 
 
+## Batch normalization
+[BN-paper](http://arxiv.org/abs/1502.03167), [caffe-PR](https://github.com/BVLC/caffe/pull/3229)
+Note, that results are obtained without mentioned in paper y=kx+b additional layer.
+
+### BN -- before or after ReLU?
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Before |0.474| 2.35 | As in paper|
+| Before + scale&bias layer |0.478| 2.33 | As in paper|
+| After |**0.499**| **2.21** | |
+| After + scale&bias layer |0.493| 2.24 | |
+
+So in all next experiments, BN is put after non-linearity
+
+### BN and activations
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| ReLU |0.499| 2.21 | |
+| RReLU |0.500| 2.20 | |
+| PReLU |**0.503**| **2.19** | |
+| ELU |0.498| 2.23 | |
+| Maxout |0.487| 2.28| |
+
+### BN and dropout
+
+ReLU non-linearity, fc6 and fc7 layer only
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+|  Dropout = 0.5 |0.499| 2.21 |  |
+|  Dropout = 0.2 |**0.527**| **2.09** |  |
+|  Dropout = 0 |0.513| 2.19 | |
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs)
+
+
 ### BatchNorm evaluation ReLU
 
 ![CaffeNet128 test accuracy](/logs/img/0.png)

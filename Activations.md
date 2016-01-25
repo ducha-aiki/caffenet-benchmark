@@ -9,6 +9,30 @@ The architecture is similar to CaffeNet, but has differences:
 Because LRN layers add nothing to accuracy, they were removed for speed reasons in further experiments.
 *ELU curves is unsmooth because of incorrectly set test set size. However, results from 310K to 320K iterations are obtained with fixed set size
 
+### Activations
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| [ReLU](http://machinelearning.wustl.edu/mlpapers/paper_files/icml2010_NairH10.pdf) |0.470| 2.36 | With LRN layers|
+| ReLU |0.470| 2.36 | No LRN, as in rest |
+| [VLReLU](https://web.stanford.edu/~awni/papers/relu_hybrid_icml2013_final.pdf) |0.469| 2.40|y=max(x,x/3)|
+| [RReLU](http://arxiv.org/abs/1505.00853) |0.478| 2.32| |
+| [Maxout](http://arxiv.org/abs/1302.4389) |0.482| 2.30| sqrt(2) narrower layers, 2 pieces|
+| [PReLU](http://arxiv.org/abs/1502.01852) |0.485| 2.29 | |
+| [ELU](http://arxiv.org/abs/1511.07289) |**0.488**| **2.28**| |
+
+
+
+### BN and activations
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| ReLU |0.499| 2.21 | |
+| RReLU |0.500| 2.20 | |
+| PReLU |**0.503**| **2.19** | |
+| ELU |0.498| 2.23 | |
+| Maxout |0.487| 2.28| |
+
 ![CaffeNet128 test accuracy](/logs/activations/img/0.png)
 
 

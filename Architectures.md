@@ -12,6 +12,27 @@ The architecture is similar to common ones for ImageNet, but has differences:
 
 Architectures are selected, that their theoretical and/or practical computational complexity ~ caffenet. Currently, holds for all except HeNet, which is slower in practice. 
 
+
+### Architectures
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| [CaffeNet256](http://arxiv.org/abs/1408.5093) |0.565| 1.87 | Reference BVLC model, LSUV init|
+| [CaffeNet](http://arxiv.org/abs/1408.5093) |0.470| 2.36 | Pool5 = 3x3|
+| [CaffeNetSPP](http://arxiv.org/abs/1406.4729) |0.483| 2.30 | SPP= 3x3 + 2x2 + 1x1 |
+| [HeNet2x2](http://arxiv.org/abs/1412.1710) |0.561 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper |
+| [HeNet3x1](http://arxiv.org/abs/1412.1710) |0.560 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper, 2x2->3x1 |
+| [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.407| 2.80| With BN, huge overfitting, no dropout. First attempt to train, probably smth went wrong |
+| [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.518| 2.16| Without BN, less overfitting (still > than HeNet), no dropout. Looks like needs bigger initial LR, than caffenet. 3rd attempt is on-going  |
+| [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.525| 2.12| Without BN, less overfitting (still > than HeNet), no dropout. LR=0.05 until 25K iters.  |
+| [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.567| 1.91| Without BN, ELU, linear lr_policy.  |
+| [GoogLeNet](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** |linear lr_policy, batch_size=256. obviously slower than caffenet |
+| googlenet_loss2_clf| 0.571 | 1.80 | from net above, aux classifier after inception_4d |
+| googlenet_loss1_clf| 0.520 | 2.06 | from net above, aux classifier after inception_4a |
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/architectures), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/architectures)
+
 Architectures tested:
 
 1. CaffeNet (pool5 size = 3x3)
@@ -25,6 +46,29 @@ Architectures tested:
 
 *** Contib 
 Base net here is caffenet+BN+PReLU+dropout=0.2
+
+
+### From contributors
+
+Base net is caffenet+BN+ReLU+drop=0.2
+There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+|  Base |0.527| 2.09 |  |
+|  Base_dereyly_lr, noBN, ReLU |0.441| 2.53 | max_iter=160K, stepsize=2K, gamma=0.915, but default caffenet|
+|  Base_dereyly 5x1, noBN, ReLU|0.474| 2.31 | 5x5->1x5+5x1 |
+|  Base_dereyly_PReLU |0.550| 1.93 | BN, PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->3x3+3x3 |
+|  Base_dereyly 3x1|**0.553**| **1.92** | PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->1x3+1x3+3x1+1x3 |
+|  Base_dereyly 3x1,halfBN|0.544| 1.95 | PreLU + base_lr=0.035, exp lr_policy, 160K iters,5x5->1x3+1x3+3x1+1x3, BN only for pool and fc6 |
+|  Base_dereyly 5x1|0.540| 2.00 | PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->1x5+5x1 |
+
+
+The PRs with test are welcomed
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/contrib), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib)
+
+
 ![CaffeNet128 test accuracy](/logs/contrib/img/0.png)
 ![CaffeNet128 test loss](/logs/contrib/img/2.png)
 ![CaffeNet128 lr_rate](/logs/contrib/img/2.png)

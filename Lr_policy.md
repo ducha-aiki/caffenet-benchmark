@@ -10,6 +10,31 @@ The architecture is similar to CaffeNet, but has differences:
 Non-linearity: ReLU
 Augmentation: random crop 128x128 from 144xN image, 50% random horizontal flip.
 
+
+### LR-policy
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Step 100K |0.470| 2.36 | Default caffenet solver, max_iter=320K |
+| Poly lr, p=0.5, sqrt |0.483| 2.29 | bvlc_quick_googlenet_solver, All the way worse than "step", leading at finish |
+| Poly lr, p=2.0, sqr |0.483| 2.299 | |
+| Poly lr, p=1.0, linear |**0.493**|***2.24*** | |
+| Poly lr, p=1.0, linear |0.466|2.39 | max_iter=160K|
+| Exp, 0.035 |0.441|2.53 | max_iter=160K, stepsize=2K, gamma=0.915, same as in base_dereyly|
+
+#### LR-policy-BatchNorm-Dropout = 0.2
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Step 100K |**0.527**| **2.09** | Default caffenet solver, max_iter=320K |
+| Poly lr, p=1.0, linear |0.496|2.24 | max_iter=105K,|
+| Poly lr, p=1.0, start_lr=0.02 |0.505| 2.21 | max_iter=105K|
+| Exp, 0.035 |0.506| 2.19 | max_iter=160K, stepsize=2K, gamma=0.915, same as in base_dereyly|
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/lr_policy), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/lr_policy)
+
+
 Step100K == reference caffenet solver.
 base_lr: 0.01
 lr_policy: "step"

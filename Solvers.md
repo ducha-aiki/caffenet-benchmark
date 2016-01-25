@@ -18,7 +18,43 @@ gamma: 0.1
 momentum: 0.9
 weight_decay: 0.0005
 
-No luck with: RMSProp, ADAM, AdaDelta, AdaGrad. 
+### Solvers
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| SGD with momentum |0.470| 2.36 | |
+| Nesterov |**0.473**|**2.34**|  |
+
+Not converge at all:
+
+ADAM: 
+lr=0.001 m=0.9 m2=0.999 delta=1e-8
+lr=0.001 m=0.95 m2=0.999 delta=1e-8
+lr=0.001 m=0.95 m2=0.999 delta=1e-7
+lr=0.01 m=0.9 m2=0.999 delta=1e-8
+lr=0.01 m=0.9 m2=0.999 delta=1e-7
+lr=0.01 m=0.9 m2=0.999 delta=1e-9
+lr=0.01 m=0.9 m2=0.99 delta=1e-8
+lr=0.01 m=0.9 m2=0.999 delta=1e-8
+lr=0.01 m=0.95 m2=0.999 delta=1e-9
+
+AdaDelta:
+delta: 1e-5
+
+RMSProp, 
+lr=0.01, rms_decay=0.5
+lr=0.01, rms_decay=0.9
+lr=0.01, rms_decay=0.95
+lr=0.01, rms_decay=0.98
+lr=0.001, rms_decay=0.9
+lr=0.001, rms_decay=0.98
+
+Converge, but much worse that SGD:
+Adagrad, lr=0.01, lr=0.02
+AdaDelta: delta: 1e-6, delta: 1e-7, delta: 1e-8
+RMSProp, lr=0.01, rms_decay=0.99
+
+ 
 The best hyperparameters are shown in graphs, the rest doesn`t even start to learn.
 If anyone knows good hyperparameters for adaptive methods (funny, isn`t it?), please, tell me.
 

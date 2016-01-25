@@ -7,6 +7,22 @@ The architecture is similar to CaffeNet, but has differences:
 3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 4. No LRN layers.
 
+### Colorspace
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| RGB |0.470| 2.36 | default, no changes |
+| CLAHE| 0.467 | 2.38 | RGB -> LAB -> CLAHE(L)->RGB |
+| YCrCb | 0.458| 2.42 |  |
+| HSV |0.451| 2.46 | |
+| Lab |-| - | Doesn`t leave 6.90 loss after 1.5K iters |
+| RGB->10->3 TanH | 0.463| 2.40 | RGB -> conv1x1x10 tanh  ->  conv1x1x3 tanh |
+| RGB->10->3 VlReLU | **0.485** | **2.28** | RGB -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
+| RGB and log(RGB)->10->3 VlReLU | 0.482 | 0.482 | RGB and log (RGB) -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
+| NN-Scale |0.467| 2.38 | Nearest neightbor instead of linear interpolation for rescale. Faster, but worse :(|
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/colorspace), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/colorspace)
 
 
 
