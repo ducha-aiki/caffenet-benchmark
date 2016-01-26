@@ -7,15 +7,22 @@ The architecture is similar to common ones for ImageNet, but has differences:
 
 ### Architectures
 
+CaffeNet only
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| [CaffeNet256](http://arxiv.org/abs/1408.5093) |0.565| 1.87 | Reference BVLC model, LSUV init|
+| [CaffeNet256](http://arxiv.org/abs/1408.5093) | **0.565** | **1.87** | Reference BVLC model, LSUV init|
 | [CaffeNet](http://arxiv.org/abs/1408.5093) |0.470| 2.36 | Pool5 = 3x3|
-| [DarkNetBN](http://pjreddie.com/darknet/imagenet/#reference) |0.502| 2.25 | 16C3->MP2->32C3->MP2->64C3->MP2->128C3->MP2->256C3->MP2->512C3->MP2->1024C3->1000CLF.BN|
 | | | + PreLU + base_lr=0.035, exp lr_policy, 160K iters |
 | CaffeNet, no pad |0.411 | 2.70 | No padding, but conv1 stride=2 instead of 4 to keep size of pool5 the same|
 | CaffeNet, dropout in conv | 0.426| 2.60 | Dropout before pool2=0.1, after conv3 = 0.1, after conv4 = 0.2 |
 | [CaffeNetSPP](http://arxiv.org/abs/1406.4729) |0.483| 2.30 | SPP= 3x3 + 2x2 + 1x1 |
+| CaffeNetAll | **0.530** | **2.05** | All improvements without caffenet arch change: ELU + SPP + color_trans3-10-3 + Nesterov+ (AVE+MAX) Pool + linear lr_policy|
+|  |+ 0.06 | | Gain over vanilla caffenet128. "Sum of gains" = 0.018 + 0.013 + 0.015 + 0.003 + 0.013 + 0.023 = 0.085 |
+
+Others
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| [DarkNetBN](http://pjreddie.com/darknet/imagenet/#reference) |0.502| 2.25 | 16C3->MP2->32C3->MP2->64C3->MP2->128C3->MP2->256C3->MP2->512C3->MP2->1024C3->1000CLF.BN|
 | [HeNet2x2](http://arxiv.org/abs/1412.1710) |0.561 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper |
 | [HeNet3x1](http://arxiv.org/abs/1412.1710) |0.560 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper, 2x2->3x1 |
 | [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.407| 2.80| With BN, huge overfitting, no dropout. First attempt to train, probably smth went wrong |
