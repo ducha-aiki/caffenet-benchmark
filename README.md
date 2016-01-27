@@ -221,12 +221,14 @@ There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
 |  Base_dereyly 5x1, noBN, ReLU|0.474| 2.31 | 5x5->1x5+5x1 |
 |  Base_dereyly_PReLU |0.550| 1.93 | BN, PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->3x3+3x3 |
 |  Base_dereyly 3x1|**0.553**| **1.92** | PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->1x3+1x3+3x1+1x3 |
-|  Base_dereyly 3x1 scale aug|0.530| 2.04 | Same as previous, img: 128 crop from (128...300)px image |
+|  Base_dereyly 3x1 scale aug|0.530| 2.04 | Same as previous, img: 128 crop from (128...300)px image, test resize to 144, crop 128 |
+|  Base_dereyly 3x1 scale aug|0.512| 2.17|  Same as previous, img: 128 crop from (128...300)px image, test resize to (128+300)/2, crop 128 |
 |  Base_dereyly 3x1->5x1|0.546| 1.97* | PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->1x5+1x5+5x1+1x5 |
 |  Base_dereyly 3x1,halfBN|0.544| 1.95 | PreLU + base_lr=0.035, exp lr_policy, 160K iters,5x5->1x3+1x3+3x1+1x3, BN only for pool and fc6 |
 |  Base_dereyly 5x1|0.540| 2.00 | PreLU + base_lr=0.035, exp lr_policy, 160K iters, 5x5->1x5+5x1 |
 |  DarkNetBN |0.502| 2.25 | 16C3->MP2->32C3->MP2->64C3->MP2->128C3->MP2->256C3->MP2->512C3->MP2->1024C3->1000CLF.BN|
 | | | | + PreLU + base_lr=0.035, exp lr_policy, 160K iters |
+
 
 
 The PRs with test are welcomed
