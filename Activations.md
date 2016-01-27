@@ -20,7 +20,7 @@ Because LRN layers add nothing to accuracy, they were removed for speed reasons 
 | [Maxout](http://arxiv.org/abs/1302.4389) |0.482| 2.30| sqrt(2) narrower layers, 2 pieces|
 | [PReLU](http://arxiv.org/abs/1502.01852) |0.485| 2.29 | |
 | [ELU](http://arxiv.org/abs/1511.07289) |**0.488**| **2.28**| |
-
+| Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
 
 
 ### BN and activations
