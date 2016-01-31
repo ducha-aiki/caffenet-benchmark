@@ -11,10 +11,11 @@ The architecture is similar to CaffeNet, but has differences:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| RGB |0.470| 2.36 | default, no changes |
-| CLAHE| 0.467 | 2.38 | RGB -> LAB -> CLAHE(L)->RGB |
-| YCrCb | 0.458| 2.42 |  |
-| HSV |0.451| 2.46 | |
+| RGB |0.470| 2.36 | default, no changes. Input = 0.04 * (Img - [104, 117,124]) |
+| RGB_by_BN |0.469| 2.38 | Input = BatchNorm(Img)|
+| CLAHE| 0.467 | 2.38 | RGB -> LAB -> CLAHE(L)->RGB->BatchNorm(RGB) |
+| YCrCb | 0.458| 2.42 | RGB->YCrCb->BatchNorm(YCrCb)  |
+| HSV |0.451| 2.46 |RGB->HSV->BatchNorm(HSV)  |
 | Lab |-| - | Doesn`t leave 6.90 loss after 1.5K iters |
 | RGB->10->3 TanH | 0.463| 2.40 | RGB -> conv1x1x10 tanh  ->  conv1x1x3 tanh |
 | RGB->10->3 VlReLU | **0.485** | **2.28** | RGB -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
