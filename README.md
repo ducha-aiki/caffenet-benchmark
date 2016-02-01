@@ -13,6 +13,7 @@ On-going evaluations with graphs:
 - [solvers](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Solvers.md)
 - [lr_policy](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Lr_policy.md)
 - [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
+- [classfier architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Clf_arch.md)
 - [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
 - [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
 - [colorspace] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Colorspace.md)
@@ -31,7 +32,6 @@ On-going evaluations with graphs:
 | [ELU](http://arxiv.org/abs/1511.07289) |**0.488**| **2.28**| |
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
 
-
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/activations), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/activations)
 
 ### Pooling
@@ -45,6 +45,19 @@ On-going evaluations with graphs:
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pooling), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
+
+### CLF architecture
+
+Nets mistakenly were trained with ELU non-linearity instead of default ReLU
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Default ELU |0.488| 2.28 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
+| pool5pad_fc6ave |0.481| 2.32 | pool5 zero pad -> fc6 = conv 3x3x2048 -> AvePool -> as usual |
+| pool5pad_fc6ave_fc7as1x1 | 0.509* | 2.21* | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool. *Training progress.  |
+| pool5pad_fc6ave_fc7as1x1_avemax_fc8 | **0.509** | **2.19** | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool + max_pool. |
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/clf_arch), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/clf_arch)
 
 
 ### Solvers
