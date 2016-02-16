@@ -17,6 +17,8 @@ On-going evaluations with graphs:
 - [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
 - [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
 - [colorspace] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Colorspace.md)
+- [regularization] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Regularization.md)
+
 
 
 ### Activations
@@ -128,6 +130,19 @@ RMSProp, lr=0.01, rms_decay=0.99
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/lr_policy), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/lr_policy)
 
+
+### Regularization
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| default |0.470| 2.36 | weight_decay=0.0005, L2, fc-dropout=0.5 |
+| wd=0.0001 |0.450| 2.48 | weight_decay=0.0001, L2, fc-dropout=0.5 |
+| wd=0.00001 |0.450| 2.48 | weight_decay=0.00001, L2, fc-dropout=0.5 |
+| wd=0.00001_L1 |0.453| 2.45 | weight_decay=0.00001, L1, fc-dropout=0.5 |
+| drop=0.3 |0.471* | 2.38* | Not finished yet, 170K iters. weight_decay=0.0005, L2, fc-dropout=0.3 |
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/regularization), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/regularization)
 
 ### Architectures
 
