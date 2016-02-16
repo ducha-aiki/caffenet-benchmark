@@ -32,10 +32,8 @@ The performance is good, but seems dependent on other design choises (i.e. beat 
 | MaxPool128-2048 |0.470| 2.36 | My reference caffenet128 |
 | GatedAveMaxPool128-2048 |0.471| 2.36 | |
 | GeneralPool128-2048 |0.464*| 2.46* | Unfinished, 227K iters |
-
 | MaxPool128-4096 |0.497| 2.24 | fc6,fc7 = 4096 |
 | GeneralPool128-4096 |0.494| 2.25 |fc6,fc7 = 4096  |
-
 | MaxPool227-4096 |0.565| 1.87 | My reference caffenet227 |
 | GeneralPool227-4096 |0.570| 1.86 |  |
 | Authors GeneralPool227-4096 |0.585| 1.78 | Different lr_policy: each step is longer |
