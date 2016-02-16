@@ -17,7 +17,31 @@ The architecture is similar to CaffeNet, but has differences:
 | Max+AvgPool |**0.483**| **2.29** | Element-wise sum|
 
 
-[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pooling), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pool), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
+
+
+
+### General pooling testing
+Authors of [Generalizing Pooling Functions in Convolutional Neural Networks: Mixed, Gated, and Tree](http://arxiv.org/abs/1509.08985) kindly provided reference implementation for test. 
+Unfortunately, under patent: UCSD Docket No. SD2016-053, "Generalizing Pooling Functions in Convolutional Neural Network", filed on Sept 23, 201
+
+The performance is good, but seems dependent on other design choises (i.e. beat MaxPool in one setup and lose in another) and also on initialization.
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| MaxPool128-2048 |0.470| 2.36 | My reference caffenet128 |
+| GatedAveMaxPool128-2048 |0.471| 2.36 | |
+| GeneralPool128-2048 |0.464*| 2.46* | Unfinished, 227K iters |
+
+| MaxPool128-4096 |0.497| 2.24 | fc6,fc7 = 4096 |
+| GeneralPool128-4096 |0.494| 2.25 |fc6,fc7 = 4096  |
+
+| MaxPool227-4096 |0.565| 1.87 | My reference caffenet227 |
+| GeneralPool227-4096 |0.570| 1.86 |  |
+| Authors GeneralPool227-4096 |0.585| 1.78 | Different lr_policy: each step is longer |
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pool/gen_pool), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
 
 
 
