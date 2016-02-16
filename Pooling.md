@@ -42,7 +42,6 @@ The performance is good, but seems dependent on other design choises (i.e. beat 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pool/gen_pool), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
 
 
-
 ![CaffeNet128 test accuracy](/logs/pooling/img/0.png)
 
 
