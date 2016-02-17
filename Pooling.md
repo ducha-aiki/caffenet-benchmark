@@ -19,7 +19,13 @@ The architecture is similar to CaffeNet, but has differences:
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pool), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
 
+![CaffeNet128 test accuracy](/logs/pooling/img/0.png)
 
+
+![CaffeNet128 test loss](/logs/pooling/img/2.png)
+
+
+![CaffeNet128 train loss](/logs/pooling/img/6.png)
 
 ### General pooling testing
 Authors of [Generalizing Pooling Functions in Convolutional Neural Networks: Mixed, Gated, and Tree](http://arxiv.org/abs/1509.08985) kindly provided reference implementation for test. 
@@ -38,17 +44,15 @@ The performance is good, but seems dependent on other design choises (i.e. beat 
 | GeneralPool227-4096 |0.570| 1.86 |  |
 | Authors GeneralPool227-4096 |0.585| 1.78 | Different lr_policy: each step is longer |
 
+![CaffeNet128 test accuracy](/logs/pooling/gen_pool/img/0.png)
+
+![CaffeNet128 test loss](/logs/pooling/gen_pool/img/2.png)
+
+![CaffeNet128 train loss](/logs/pooling/gen_pool/img/6.png)
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pool/gen_pool), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
 
 
-![CaffeNet128 test accuracy](/logs/pooling/img/0.png)
-
-
-![CaffeNet128 test loss](/logs/pooling/img/2.png)
-
-
-![CaffeNet128 train loss](/logs/pooling/img/6.png)
 
 Previous results on small datasets like CIFAR (see [LSUV-init, Table3](http://arxiv.org/abs/1511.06422)) looks a bit contradictory to ImageNet ones so far.
 
