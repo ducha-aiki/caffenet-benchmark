@@ -15,7 +15,7 @@ The architecture is similar to CaffeNet, but has differences:
 | wd=0.0001 |0.450| 2.48 | weight_decay=0.0001, L2, fc-dropout=0.5 |
 | wd=0.00001 |0.450| 2.48 | weight_decay=0.00001, L2, fc-dropout=0.5 |
 | wd=0.00001_L1 |0.453| 2.45 | weight_decay=0.00001, L1, fc-dropout=0.5 |
-| drop=0.3 |0.471* | 2.38* | Not finished yet, 170K iters. weight_decay=0.0005, L2, fc-dropout=0.3 |
+| drop=0.3 | **0.497** | **2.25** | weight_decay=0.0005, L2, fc-dropout=0.3 |
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/regularization), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/regularization)
