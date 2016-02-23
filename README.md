@@ -142,7 +142,8 @@ RMSProp, lr=0.01, rms_decay=0.99
 | wd=0.00001 |0.450| 2.48 | weight_decay=0.00001, L2, fc-dropout=0.5 |
 | wd=0.00001_L1 |0.453| 2.45 | weight_decay=0.00001, L1, fc-dropout=0.5 |
 | drop=0.3 | **0.497** | **2.25** | weight_decay=0.0005, L2, fc-dropout=0.3 |
-
+| drop=0.2 | 0.494 | 2.28 | weight_decay=0.0005, L2, fc-dropout=0.2 |
+| drop=0.1 | 0.473 | 2.45 | weight_decay=0.0005, L2, fc-dropout=0.1. Same acc, as in 0.5, but bigger logloss |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/regularization), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/regularization)
 
