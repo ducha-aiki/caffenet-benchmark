@@ -16,6 +16,7 @@ The architecture is similar to common ones for ImageNet, but has differences:
 | [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.567| 1.91| Without BN, ELU, linear lr_policy.  |
 | [ResNet-56BN](http://arxiv.org/abs/1512.03385) | 0.612| 1.70| With BN, no EA, step lr_policy. Stopped at 220K iters due to overfitting  |
 | [ResNet-56ELU](http://arxiv.org/abs/1512.03385) | 0.515| 2.43| Without BN, ELU, step lr_policy. Stopped at 220K iters due to overfitting  |
+| DereResNet-45 | 0.495| 2.25| With BN, no EA, dereyly lr_policy. Stopped at 120K iters due to overfitting  |
 | [GoogLeNet-128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** | For reference. linear lr_policy, batch_size=256. |
 
 
