@@ -5,7 +5,7 @@ The architecture is similar to common ones for ImageNet, but has differences:
 1. Images are resized to small side = 128 for speed reasons.
 2. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 
-### Architectures
+ResNet attempts are moved to [ResNets.md](ResNets.md)
 
 ### Architectures
 
@@ -31,10 +31,6 @@ Others
 | [DarkNetBN](http://pjreddie.com/darknet/imagenet/#reference) |0.502| 2.25 | 16C3->MP2->32C3->MP2->64C3->MP2->128C3->MP2->256C3->MP2->512C3->MP2->1024C3->1000CLF.BN|
 | [HeNet2x2](http://arxiv.org/abs/1412.1710) |0.561 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper |
 | [HeNet3x1](http://arxiv.org/abs/1412.1710) |0.560 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper, 2x2->3x1 |
-| [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.407| 2.80| With BN, huge overfitting, no dropout. First attempt to train, probably smth went wrong |
-| [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.518| 2.16| Without BN, less overfitting (still > than HeNet), no dropout. Looks like needs bigger initial LR, than caffenet. 3rd attempt is on-going  |
-| [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.525| 2.12| Without BN, less overfitting (still > than HeNet), no dropout. LR=0.05 until 25K iters.  |
-| [ThinResNet-101](http://arxiv.org/abs/1512.03385) | 0.567| 1.91| Without BN, ELU, linear lr_policy.  |
 | [GoogLeNet](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** |linear lr_policy, batch_size=256. obviously slower than caffenet |
 | googlenet_loss2_clf| 0.571 | 1.80 | from net above, aux classifier after inception_4d |
 | googlenet_loss1_clf| 0.520 | 2.06 | from net above, aux classifier after inception_4a |
@@ -47,11 +43,7 @@ Architectures tested:
 1. CaffeNet (pool5 size = 3x3)
 2. HeNet [Convolutional Neural Networks at Constrained Time Cost](http://arxiv.org/abs/1412.1710). The difference with paper is VLReLU (converges faster at start) and no SPP pooling, instead used "classical" pool5
 3. CaffeNetSPP, single scale training (SPP pool5 = 3x3 + 2x2 + 1x1) [Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition](http://arxiv.org/abs/1406.4729)]
-4. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) with BN, 1st attempt
-5. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) without BN, less stride in first layer but thinner than (4), 2nd attempt
-6. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) as 5, but lr=0.05 until 25K iterations.
-7. ThinResNet-101 [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385) as 5, but with ELU and lr_policy=linear.
-8. GoogleNet [Going Deeper with Convolutions](http://arxiv.org/abs/1409.4842)
+4. GoogleNet [Going Deeper with Convolutions](http://arxiv.org/abs/1409.4842)
 
 ![CaffeNet128 test accuracy](/logs/architectures/img/0.png)
 ![CaffeNet128 test loss](/logs/architectures/img/2.png)
