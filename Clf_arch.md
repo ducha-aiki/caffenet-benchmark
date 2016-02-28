@@ -15,7 +15,8 @@ pool5pad *Nets mistakenly were trained with ELU non-linearity instead of default
 | -------|---------:| -------:|:-----------|
 | Default ELU|0.488| 2.28 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
 | pool5pad_fc6ave |0.481| 2.32 | pool5 zero pad -> fc6 = conv 3x3x2048 -> AvePool -> as usual |
-| pool5pad_fc6ave_fc7as1x1 | **0.511** | 2.21 | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool.  |
+| pool5pad_fc6ave_fc7as1x1fc8ave | **0.511** | 2.21 | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool.  |
+| pool5pad_fc6ave_fc7as1x1avefc8 | 0.508 | 2.22 | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> ave_pool  -> fc8  |
 | pool5pad_fc6ave_fc7as1x1_avemax_fc8 | 0.509 | **2.19** | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool + max_pool. |
 | Default ReLU|0.470| 2.36 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
 | Default ReLU|0.497| 2.24 | fc6 = conv 3x3x4096 -> fc7 4096 -> 1000 fc8 == original caffenet|

@@ -60,7 +60,8 @@ pool5pad *Nets mistakenly were trained with ELU non-linearity instead of default
 | -------|---------:| -------:|:-----------|
 | Default ELU|0.488| 2.28 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
 | pool5pad_fc6ave |0.481| 2.32 | pool5 zero pad -> fc6 = conv 3x3x2048 -> AvePool -> as usual |
-| pool5pad_fc6ave_fc7as1x1 | **0.511** | 2.21 | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool.  |
+| pool5pad_fc6ave_fc7as1x1fc8ave | 0.508 | 2.22 |  pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> ave_pool -> fc8 as 1x1 conv.  |
+| pool5pad_fc6ave_fc7as1x1avefc8 | **0.511** | 2.21 |pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool.  |
 | pool5pad_fc6ave_fc7as1x1_avemax_fc8 | 0.509 | **2.19** | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool + max_pool. |
 | Default ReLU|0.470| 2.36 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
 | fc6-7 4096|0.497| 2.24 | fc6 = conv 3x3x4096 -> fc7 4096 -> 1000 fc8 == original caffenet|
@@ -157,6 +158,7 @@ CaffeNet only
 | [CaffeNet](http://arxiv.org/abs/1408.5093) |0.470| 2.36 | Pool5 = 3x3|
 | CaffeNetAll | **0.530** | **2.05** | All improvements without caffenet arch change: ELU + SPP + color_trans3-10-3 + Nesterov+ (AVE+MAX) Pool + linear lr_policy|
 |  | + 0.06 |  | Gain over vanilla caffenet128. "Sum of gains" = 0.018 + 0.013 + 0.015 + 0.003 + 0.013 + 0.023 = 0.085 |
+| [SqueezeNet128](https://github.com/DeepScale/SqueezeNet) | **0.530** | 2.08 | Reference solver, but linear lr_policy and batch_size=256 (320K iters)|
 | CaffeNet256All | 0.613 | 1.64 | All improvements without caffenet arch change: ELU + SPP + color_trans3-10-3 + Nesterov+ (AVE+MAX) Pool + linear lr_policy|
 | CaffeNet, no pad |0.411 | 2.70 | No padding, but conv1 stride=2 instead of 4 to keep size of pool5 the same|
 | CaffeNet, dropout in conv | 0.426| 2.60 | Dropout before pool2=0.1, after conv3 = 0.1, after conv4 = 0.2 |

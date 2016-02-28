@@ -16,6 +16,7 @@ CaffeNet only
 | [CaffeNet256](http://arxiv.org/abs/1408.5093) | **0.565** | **1.87** | Reference BVLC model, LSUV init|
 | [CaffeNet](http://arxiv.org/abs/1408.5093) |0.470| 2.36 | Pool5 = 3x3|
 | CaffeNetAll | **0.530** | **2.05** | All improvements without caffenet arch change: ELU + SPP + color_trans3-10-3 + Nesterov+ (AVE+MAX) Pool + linear lr_policy|
+| [SqueezeNet128](https://github.com/DeepScale/SqueezeNet) | **0.530** | 2.08 | Reference solver, but linear lr_policy and batch_size=256 (320K iters)|
 |  | + 0.06 |  | Gain over vanilla caffenet128. "Sum of gains" = 0.018 + 0.013 + 0.015 + 0.003 + 0.013 + 0.023 = 0.085 |
 | CaffeNet256All | 0.613 | 1.64 | All improvements without caffenet arch change: ELU + SPP + color_trans3-10-3 + Nesterov+ (AVE+MAX) Pool + linear lr_policy|
 | CaffeNet, no pad |0.411 | 2.70 | No padding, but conv1 stride=2 instead of 4 to keep size of pool5 the same|
