@@ -171,16 +171,14 @@ Others
 
 ResNet attempts are moved to [ResNets.md](ResNets.md)
 
+### ResNets, good attempts
+
+
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| [DarkNetBN](http://pjreddie.com/darknet/imagenet/#reference) |0.502| 2.25 | 16C3->MP2->32C3->MP2->64C3->MP2->128C3->MP2->256C3->MP2->512C3->MP2->1024C3->1000CLF.BN|
-| [HeNet2x2](http://arxiv.org/abs/1412.1710) |0.561 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper |
-| [HeNet3x1](http://arxiv.org/abs/1412.1710) |0.560 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper, 2x2->3x1 |
-| [GoogLeNet](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** |linear lr_policy, batch_size=256. obviously slower than caffenet |
-| googlenet_loss2_clf| 0.571 | 1.80 | from net above, aux classifier after inception_4d |
-| googlenet_loss1_clf| 0.520 | 2.06 | from net above, aux classifier after inception_4a |
+| [ResNet-50ELU-2xThinner](http://arxiv.org/abs/1512.03385) | 0.616| 1.63| Without BN, ELU, dropout=0.2 before classifier. 2x thinner, than in paper. Quite fast. No large overfitting (unlike upper table) |
+| [GoogLeNet-128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** | For reference. linear lr_policy, batch_size=256. |
 
-[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/architectures), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/architectures)
 
 ### Train augmentation
 

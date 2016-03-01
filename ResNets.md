@@ -5,7 +5,9 @@ The architecture is similar to common ones for ImageNet, but has differences:
 1. Images are resized to small side = 128 for speed reasons.
 2. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 
-### Architectures
+### Architectures, bad, overfitting
+
+Except GoogLeNet
 
 
 | Name    | Accuracy      | LogLoss | Comments  |
@@ -17,6 +19,14 @@ The architecture is similar to common ones for ImageNet, but has differences:
 | [ResNet-56BN](http://arxiv.org/abs/1512.03385) | 0.612| 1.70| With BN, no EA, step lr_policy. Stopped at 220K iters due to overfitting  |
 | [ResNet-56ELU bad :(](http://arxiv.org/abs/1512.03385) | 0.515| 2.43| Double stride after maxpool1 by mistake :( Without BN, ELU, step lr_policy. Stopped at 220K iters due to overfitting  |
 | DereResNet-45 | 0.495| 2.25| Double stride after maxpool1 by mistake :(  With BN, no EA, dereyly lr_policy. Stopped at 120K iters due to overfitting  |
+| [GoogLeNet-128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** | For reference. linear lr_policy, batch_size=256. |
+
+### Architectures, good attempts
+
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| [ResNet-50ELU-2xThinner](http://arxiv.org/abs/1512.03385) | 0.616| 1.63| Without BN, ELU, dropout=0.2 before classifier. 2x thinner, than in paper. Quite fast. No large overfitting (unlike upper table) |
 | [GoogLeNet-128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** | For reference. linear lr_policy, batch_size=256. |
 
 
