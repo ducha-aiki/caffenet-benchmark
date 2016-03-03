@@ -38,15 +38,23 @@ On-going evaluations with graphs:
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/activations), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/activations)
 
-### Pooling
+### Pooling type
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | MaxPool |0.470| 2.36 | |
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
 | AvgPool |0.435| 2.56 | |
-| Max+AvgPool |**0.483**| **2.29** | Element-wise sum|
+| Max+AvgPool | **0.483** | **2.29** | Element-wise sum|
 | [General](http://arxiv.org/abs/1509.08985) | - | - | Depends on arch, [click for details](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Pooling.md)|
+
+### Pooling window/stride
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| MaxPool 3x3/2 |0.470| 2.36 | default alexnet|
+| MaxPool 2x2/2 | **0.484** | **2.29** |Leads to larger feature map, Pool5=4x4 instead of  3x3 |
+
 
 
 
