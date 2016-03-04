@@ -19,8 +19,24 @@ The architecture is similar to CaffeNet, but has differences:
 | drop=0.2 | 0.494 | 2.28 | weight_decay=0.0005, L2, fc-dropout=0.2 |
 | drop=0.1 | 0.473 | 2.45 | weight_decay=0.0005, L2, fc-dropout=0.1. Same acc, as in 0.5, but bigger logloss |
 
-
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/regularization), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/regularization)
+
+
+
+### Dropout and width 
+
+Hypothesis about "same effective neurons = same performance" looks unvalidated
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| fc6,fc7=2048, dropout=0.5 |0.470| 2.36 | default |
+| fc6,fc7=2048, dropout=0.3 | **0.497** | 2.25 | best for fc6,fc7=2048. 0.7*2048=1433 neurons work each time |
+| fc6,fc7=4096, dropout=0.65 |0.465| 2.38 | 0.65*4096=1433 neurons work each time |
+| fc6,fc7=6144, dropout=0.77 |0.447| 2.48 | 0.77*6144=1433 neurons work each time |
+| fc6,fc7=4096, dropout=0.5 | **0.497** | **2.24** | |
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/regularization/dropout_same_effective), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/regularization/dropout_same_effective)
+
 
 
 
@@ -31,6 +47,16 @@ The architecture is similar to CaffeNet, but has differences:
 
 
 ![CaffeNet128 train loss](/logs/regularization/img/6.png)
+
+
+![CaffeNet128 test accuracy](/logs/regularization/dropout_same_effective/img/0.png)
+
+
+![CaffeNet128 test loss](/logs/regularization/dropout_same_effective/img/2.png)
+
+
+![CaffeNet128 train loss](/logs/regularization/dropout_same_effective/img/6.png)
+
 
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Accuracy vs. seconds" will give weird results. 
 
