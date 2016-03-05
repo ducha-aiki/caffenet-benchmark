@@ -54,9 +54,8 @@ On-going evaluations with graphs:
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | MaxPool 3x3/2 |0.470| 2.36 | default alexnet|
-| MaxPool 2x2/2 | **0.484** | **2.29** |Leads to larger feature map, Pool5=4x4 instead of  3x3 |
-
-
+| MaxPool 2x2/2 | 0.484 | 2.29 |Leads to larger feature map, Pool5=4x4 instead of  3x3 |
+| MaxPool 3x3/2 pad1 | **0.488** | **2.25** |Leads to even larger feature map, Pool5=5x5 instead of  3x3 |
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pooling), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
