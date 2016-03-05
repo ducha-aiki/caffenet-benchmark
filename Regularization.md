@@ -34,6 +34,7 @@ Hypothesis about "same effective neurons = same performance" looks unvalidated
 | fc6,fc7=4096, dropout=0.65 |0.465| 2.38 | 0.65*4096=1433 neurons work each time |
 | fc6,fc7=6144, dropout=0.77 |0.447| 2.48 | 0.77*6144=1433 neurons work each time |
 | fc6,fc7=4096, dropout=0.5 | **0.497** | **2.24** | |
+| fc6,fc7=1433, dropout=0 | 0.456 | 2.52 | |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/regularization/dropout_same_effective), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/regularization/dropout_same_effective)
 

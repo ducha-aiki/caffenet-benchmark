@@ -78,6 +78,17 @@ pool5pad *Nets mistakenly were trained with ELU non-linearity instead of default
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/clf_arch), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/clf_arch)
 
+## Squeezing representation
+
+For example, for using activations in image retrieval. 
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| pool5pad_fc6ave_fc7as1x1fc8ave | 0.508 | 2.22 |  Baseline. pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> ave_pool -> fc8 as 1x1 conv.  |
+| pool5pad_fc6ave_fc7as1x1=512_fc8ave | 0.489 | 2.30 |  fc7 as 1x1 conv  = 512   |
+| pool5pad_fc6ave_fc7as1x1_bottleneck=512_fc8ave | 0.490 | 2.28 | fc7 as 1x1 conv = 2048 then fc7a = 512  |
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/clf_arch/bottleneck), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/clf_arch/bottleneck)
 
 ### Solvers
 
@@ -168,6 +179,7 @@ Hypothesis about "same effective neurons = same performance" looks unvalidated
 | fc6,fc7=4096, dropout=0.65 |0.465| 2.38 | (1-0.65)*4096=1433 neurons work each time |
 | fc6,fc7=6144, dropout=0.77 |0.447| 2.48 | (1-0.77)*6144=1433 neurons work each time |
 | fc6,fc7=4096, dropout=0.5 | **0.497** | **2.24** | |
+| fc6,fc7=1433, dropout=0 | 0.456 | 2.52 | |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/regularization/dropout_same_effective), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/regularization/dropout_same_effective)
 

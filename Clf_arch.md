@@ -25,8 +25,6 @@ pool5pad *Nets mistakenly were trained with ELU non-linearity instead of default
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/clf_arch), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/clf_arch)
 
-
-
 ![CaffeNet128 test accuracy](/logs/clf_arch/img/0.png)
 
 
@@ -34,6 +32,29 @@ pool5pad *Nets mistakenly were trained with ELU non-linearity instead of default
 
 
 ![CaffeNet128 train loss](/logs/clf_arch/img/6.png)
+
+
+## Squeezing representation
+
+For example, for using activations in image retrieval. 
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| pool5pad_fc6ave_fc7as1x1fc8ave | 0.508 | 2.22 |  Baseline. pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> ave_pool -> fc8 as 1x1 conv.  |
+| pool5pad_fc6ave_fc7as1x1=512_fc8ave | 0.489 | 2.30 |  fc7 as 1x1 conv  = 512   |
+| pool5pad_fc6ave_fc7as1x1_bottleneck=512_fc8ave | 0.490 | 2.28 | fc7 as 1x1 conv = 2048 then fc7a = 512  |
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/clf_arch/bottleneck), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/clf_arch/bottleneck)
+
+![CaffeNet128 test accuracy](/logs/clf_arch/bottleneck/img/0.png)
+
+
+![CaffeNet128 test loss](/logs/clf_arch/bottleneck/img/2.png)
+
+
+![CaffeNet128 train loss](/logs/clf_arch/bottleneck/img/6.png)
+
+
 
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Accuracy vs. seconds" will give weird results. 
 
