@@ -29,6 +29,7 @@ On-going evaluations with graphs:
 | -------|---------:| -------:|:-----------|
 | [ReLU](http://machinelearning.wustl.edu/mlpapers/paper_files/icml2010_NairH10.pdf) |0.470| 2.36 | With LRN layers|
 | ReLU |0.470| 2.36 | No LRN, as in rest |
+| TanH |0.401| 2.78 |  |
 | [VLReLU](https://web.stanford.edu/~awni/papers/relu_hybrid_icml2013_final.pdf) |0.469| 2.40|y=max(x,x/3)|
 | [RReLU](http://arxiv.org/abs/1505.00853) |0.478| 2.32| |
 | [Maxout](http://arxiv.org/abs/1302.4389) |0.482| 2.30| sqrt(2) narrower layers, 2 pieces|
@@ -258,6 +259,7 @@ So in all next experiments, BN is put after non-linearity
 | PReLU |**0.503**| **2.19** | |
 | ELU |0.498| 2.23 | |
 | Maxout |0.487| 2.28| |
+| Sigmoid |0.475| 2.35| |
 
 ### BN and dropout
 

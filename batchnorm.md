@@ -37,6 +37,7 @@ So in all next experiments, BN is put after non-linearity
 | PReLU |**0.503**| **2.19** | |
 | ELU |0.498| 2.23 | |
 | Maxout |0.487| 2.28| |
+| Sigmoid |0.475| 2.35| |
 
 ### BN and dropout
 
