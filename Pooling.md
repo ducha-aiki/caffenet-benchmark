@@ -11,10 +11,12 @@ The architecture is similar to CaffeNet, but has differences:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool |0.470| 2.36 | |
+| MaxPool |0.470| 2.36 | 290K iters stopped|
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
 | AvgPool |0.435| 2.56 | |
 | Max+AvgPool | **0.483** | **2.29** | Element-wise sum|
+| NoPool |0.472| 2.35 | Strided conv2,conv3,conv4 |
+
 
 ### Pooling window/stride
 

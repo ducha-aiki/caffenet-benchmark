@@ -19,7 +19,7 @@ On-going evaluations with graphs:
 - [colorspace] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Colorspace.md)
 - [regularization] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Regularization.md)
 - [resnets, not yet successfull] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/ResNets.md)
-
+- [other mix] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Misc.md)
 
 
 
@@ -43,10 +43,11 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool |0.470| 2.36 | |
+| MaxPool |0.470| 2.36 | 290K iters stopped|
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
 | AvgPool |0.435| 2.56 | |
 | Max+AvgPool | **0.483** | **2.29** | Element-wise sum|
+| NoPool |0.472| 2.35 | Strided conv2,conv3,conv4 |
 | [General](http://arxiv.org/abs/1509.08985) | - | - | Depends on arch, [click for details](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Pooling.md)|
 
 ### Pooling window/stride
@@ -307,10 +308,22 @@ There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
 | | | | + PreLU + base_lr=0.035, exp lr_policy, 160K iters |
 
 
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/contrib), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib)
+
+
+### Other
+
+ReLU non-linearity, fc6 and fc7 layer only
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+|  Default |0.470| 2.36 | 290K iters stopped|
+|  NoBias |0.445| 2.50 | Biases initialized with zeros, lr_rate = 0|
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/other), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/other)
+
 
 The PRs with test are welcomed
-
-[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/contrib), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib)
 
 P.S. Logs are merged from lots of "save-resume", because were trained at nights, so plot "Anything vs. seconds" will give weird results. 
 
