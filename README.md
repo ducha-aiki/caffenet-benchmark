@@ -19,6 +19,7 @@ On-going evaluations with graphs:
 - [colorspace] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Colorspace.md)
 - [regularization] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Regularization.md)
 - [resnets, not yet successfull] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/ResNets.md)
+- [dataset size] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Dataset_size.md)
 - [other mix] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Misc.md)
 
 
