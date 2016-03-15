@@ -39,6 +39,7 @@ Others
 | [GoogLeNet128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** |linear lr_policy, batch_size=256. obviously slower than caffenet |
 | googlenet_loss2_clf| 0.571 | 1.80 | from net above, aux classifier after inception_4d |
 | googlenet_loss1_clf| 0.520 | 2.06 | from net above, aux classifier after inception_4a |
+| GoogLeNet128_BN_after | 0.596 | 1.70 |BN After ReLU|
 | [fitnet1_elu](http://arxiv.org/abs/1412.6550) | 0.333 | 3.21 | |
 
 
