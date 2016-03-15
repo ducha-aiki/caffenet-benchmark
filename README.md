@@ -98,6 +98,12 @@ For example, for using activations in image retrieval.
 | -------|---------:| -------:|:-----------|
 | SGD with momentum |0.470| 2.36 | |
 | Nesterov |**0.473**|**2.34**|  |
+| RMSProp |0.327| 3.20 | rms_decay=0.9, delta=1.0  |
+| RMSProp | 0.453| 2.45 | rms_decay=0.9, delta=1.0, base_lr: 0.045, stepsize=10K. gamma=0.94 (from [here](https://github.com/smichalowski/google_inception_v3_for_caffe)) |
+| RMSProp | 0.451| 2.43| rms_decay=0.9, delta=1.0, base_lr: 0.1, stepsize=10K. gamma=0.94 |
+| RMSProp | 0.472| 2.36| rms_decay=0.9, delta=1.0, base_lr: 0.1, stepsize=5K. gamma=0.94 |
+| RMSProp |0.486| 2.28 | rms_decay=0.9, delta=1.0, lr=0.1, linear lr_policy  |
+| SGD with momentum, linear |0.493| 2.24 | linear lr_policy  |
 
 Not converge at all:
 
@@ -236,6 +242,7 @@ ResNet attempts are moved to [ResNets.md](ResNets.md)
 | RGB |0.470| 2.36 | default, no changes. Input = 0.04 * (Img - [104, 117,124]) |
 | RGB_by_BN |0.469| 2.38 | Input = BatchNorm(Img)|
 | CLAHE| 0.467 | 2.38 | RGB -> LAB -> CLAHE(L)->RGB->BatchNorm(RGB) |
+| HISTEQ| 0.448 | 2.48 | RGB -> HiestEq |
 | YCrCb | 0.458| 2.42 | RGB->YCrCb->BatchNorm(YCrCb)  |
 | HSV |0.451| 2.46 |RGB->HSV->BatchNorm(HSV)  |
 | Lab |-| - | Doesn`t leave 6.90 loss after 1.5K iters |
@@ -244,6 +251,7 @@ ResNet attempts are moved to [ResNets.md](ResNets.md)
 | RGB->10->3 VlReLU->sum(RGB) | 0.482 | 2.30 | RGB -> conv1x1x10 vlrelu  ->  conv1x1x3 -> sum(RGB) ->vlrelu|
 | RGB and log(RGB)->10->3 VlReLU | 0.482 | 0.482 | RGB and log (RGB) -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
 | NN-Scale |0.467| 2.38 | Nearest neightbor instead of linear interpolation for rescale. Faster, but worse :(|
+| concat_rgb_each_pool |0.441| 2.51 | Concat avepoolRGB with each pool |
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/colorspace), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/colorspace)

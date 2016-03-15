@@ -14,6 +14,7 @@ The architecture is similar to CaffeNet, but has differences:
 | RGB |0.470| 2.36 | default, no changes. Input = 0.04 * (Img - [104, 117,124]) |
 | RGB_by_BN |0.469| 2.38 | Input = BatchNorm(Img)|
 | CLAHE| 0.467 | 2.38 | RGB -> LAB -> CLAHE(L)->RGB->BatchNorm(RGB) |
+| HISTEQ| 0.448 | 2.48 | RGB -> HiestEq |
 | YCrCb | 0.458| 2.42 | RGB->YCrCb->BatchNorm(YCrCb)  |
 | HSV |0.451| 2.46 |RGB->HSV->BatchNorm(HSV)  |
 | Lab |-| - | Doesn`t leave 6.90 loss after 1.5K iters |
@@ -22,6 +23,8 @@ The architecture is similar to CaffeNet, but has differences:
 | RGB->10->3 VlReLU->sum(RGB) | 0.482 | 2.30 | RGB -> conv1x1x10 vlrelu  ->  conv1x1x3 -> sum(RGB) ->vlrelu|
 | RGB and log(RGB)->10->3 VlReLU | 0.482 | 0.482 | RGB and log (RGB) -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
 | NN-Scale |0.467| 2.38 | Nearest neightbor instead of linear interpolation for rescale. Faster, but worse :(|
+| concat_rgb_each_pool |0.441| 2.51 | Concat avepoolRGB with each pool |
+
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/colorspace), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/colorspace)
