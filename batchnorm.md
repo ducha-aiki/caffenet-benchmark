@@ -57,16 +57,16 @@ ReLU non-linearity, fc6 and fc7 layer only
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | Caffenet |0.470| 2.36 ||
-| Caffenet Before + scale&bias layer LSUV|0.478| 2.33 | |
-| Caffenet Before + scale&bias layer Ortho|0.482| 2.31 | |
-| Caffenet After LSUV | **0.499** | **2.21** | |
-| Caffenet After Ortho ||  | In progress|
+| Caffenet BN Before + scale&bias layer LSUV|0.478| 2.33 | |
+| Caffenet BN Before + scale&bias layer Ortho|0.482| 2.31 | |
+| Caffenet BN After LSUV | 0.499 | 2.21 | |
+| Caffenet BN After Ortho | **0.500** | **2.20** | |
 
 | [GoogLeNet128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** ||
-| GoogLeNet Before + scale&bias layer LSUV||  | In progress|
-| GoogLeNet Before + scale&bias layer Ortho||  |In progress |
-| GoogLeNet After LSUV |0.596| 1.70 | |
-| GoogLeNet After Ortho | |  | In progress|
+| GoogLeNet BN Before + scale&bias layer LSUV||  | In progress|
+| GoogLeNet BN Before + scale&bias layer Ortho||  |In progress |
+| GoogLeNet BN After LSUV |0.596| 1.70 | |
+| GoogLeNet BN After Ortho | |  | In progress|
 
 
 ![CaffeNet128 test accuracy](/logs/bn_init/img/0caffe.png)
