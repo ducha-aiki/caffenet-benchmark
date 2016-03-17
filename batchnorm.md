@@ -62,6 +62,8 @@ ReLU non-linearity, fc6 and fc7 layer only
 | Caffenet BN After LSUV | 0.499 | 2.21 | |
 | Caffenet BN After Ortho | **0.500** | **2.20** | |
 
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
 | [GoogLeNet128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** ||
 | GoogLeNet BN Before + scale&bias layer LSUV||  | In progress|
 | GoogLeNet BN Before + scale&bias layer Ortho||  |In progress |
