@@ -11,7 +11,7 @@ The architecture is similar to CaffeNet, but has differences:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| default |0.470| 2.36 | weight_decay=0.0005, L2, fc-dropout=0.5 |
+| default |0.471| 2.36 | weight_decay=0.0005, L2, fc-dropout=0.5 |
 | wd=0.0001 |0.450| 2.48 | weight_decay=0.0001, L2, fc-dropout=0.5 |
 | wd=0.00001 |0.450| 2.48 | weight_decay=0.00001, L2, fc-dropout=0.5 |
 | wd=0.00001_L1 |0.453| 2.45 | weight_decay=0.00001, L1, fc-dropout=0.5 |
@@ -29,7 +29,7 @@ Hypothesis about "same effective neurons = same performance" looks unvalidated
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| fc6,fc7=2048, dropout=0.5 |0.470| 2.36 | default |
+| fc6,fc7=2048, dropout=0.5 |0.471| 2.36 | default |
 | fc6,fc7=2048, dropout=0.3 | **0.497** | 2.25 | best for fc6,fc7=2048. 0.7*2048=1433 neurons work each time |
 | fc6,fc7=4096, dropout=0.65 |0.465| 2.38 | 0.65*4096=1433 neurons work each time |
 | fc6,fc7=6144, dropout=0.77 |0.447| 2.48 | 0.77*6144=1433 neurons work each time |

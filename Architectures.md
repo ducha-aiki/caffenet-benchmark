@@ -14,7 +14,7 @@ CaffeNet only
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | [CaffeNet256](http://arxiv.org/abs/1408.5093) | **0.565** | **1.87** | Reference BVLC model, LSUV init|
-| [CaffeNet128](http://arxiv.org/abs/1408.5093) |0.470| 2.36 | Pool5 = 3x3|
+| [CaffeNet128](http://arxiv.org/abs/1408.5093) |0.471| 2.36 | Pool5 = 3x3|
 | [CaffeNet128_4096](http://arxiv.org/abs/1408.5093) |0.497| 2.24 | Pool5 = 3x3, fc6-fc7=4096|
 | CaffeNet128All | **0.530** | **2.05** | All improvements without caffenet arch change: ELU + SPP + color_trans3-10-3 + Nesterov+ (AVE+MAX) Pool + linear lr_policy|
 |  | + 0.06 |  | Gain over vanilla caffenet128. "Sum of gains" = 0.018 + 0.013 + 0.015 + 0.003 + 0.013 + 0.023 = 0.085 |

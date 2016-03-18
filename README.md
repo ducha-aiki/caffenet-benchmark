@@ -29,7 +29,7 @@ On-going evaluations with graphs:
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | [ReLU](http://machinelearning.wustl.edu/mlpapers/paper_files/icml2010_NairH10.pdf) |0.470| 2.36 | With LRN layers|
-| ReLU |0.470| 2.36 | No LRN, as in rest |
+| ReLU |0.471| 2.36 | No LRN, as in rest |
 | TanH |0.401| 2.78 |  |
 | [VLReLU](https://web.stanford.edu/~awni/papers/relu_hybrid_icml2013_final.pdf) |0.469| 2.40|y=max(x,x/3)|
 | [RReLU](http://arxiv.org/abs/1505.00853) |0.478| 2.32| |
@@ -44,7 +44,7 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool |0.470| 2.36 | 290K iters stopped|
+| MaxPool |0.471| 2.36 | 290K iters stopped|
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
 | AvgPool |0.435| 2.56 | |
 | Max+AvgPool | **0.483** | **2.29** | Element-wise sum|
@@ -55,7 +55,7 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool 3x3/2 |0.470| 2.36 | default alexnet|
+| MaxPool 3x3/2 |0.471| 2.36 | default alexnet|
 | MaxPool 2x2/2 | 0.484 | 2.29 |Leads to larger feature map, Pool5=4x4 instead of  3x3 |
 | MaxPool 3x3/2 pad1 | **0.488** | **2.25** |Leads to even larger feature map, Pool5=5x5 instead of  3x3 |
 
@@ -73,7 +73,7 @@ pool5pad *Nets mistakenly were trained with ELU non-linearity instead of default
 | pool5pad_fc6ave_fc7as1x1fc8ave | 0.508 | 2.22 |  pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> ave_pool -> fc8 as 1x1 conv.  |
 | pool5pad_fc6ave_fc7as1x1avefc8 | **0.511** | 2.21 |pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool.  |
 | pool5pad_fc6ave_fc7as1x1_avemax_fc8 | 0.509 | **2.19** | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool + max_pool. |
-| Default ReLU|0.470| 2.36 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
+| Default ReLU|0.471| 2.36 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
 | fc6-7 4096|0.497| 2.24 | fc6 = conv 3x3x4096 -> fc7 4096 -> 1000 fc8 == original caffenet|
 | fc6=512C3_1024C3_1536C1 |0.482| 2.52 | pool5 zero pad -> fc6 = conv 3x3x512 -> fc7=conv 3x3x1024 -> 1x1x1536 ->  fc8 as 1x1 conv -> ave_pool.  |
 | fc6=512C3_1024C3_1536C1_drop |0.491| 2.29 | pool5 zero pad -> fc6 = conv 3x3x512 -> fc7=conv 3x3x1024 -> drop 0.3 -> 1x1x1536 -> drop 0.5-> fc8 as 1x1 conv -> ave_pool.  |
@@ -96,7 +96,7 @@ For example, for using activations in image retrieval.
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| SGD with momentum |0.470| 2.36 | |
+| SGD with momentum |0.471| 2.36 | |
 | Nesterov |**0.473**|**2.34**|  |
 | RMSProp |0.327| 3.20 | rms_decay=0.9, delta=1.0  |
 | RMSProp | 0.453| 2.45 | rms_decay=0.9, delta=1.0, base_lr: 0.045, stepsize=10K. gamma=0.94 (from [here](https://github.com/smichalowski/google_inception_v3_for_caffe)) |
@@ -141,7 +141,7 @@ RMSProp, lr=0.01, rms_decay=0.99
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| Step 100K |0.470| 2.36 | Default caffenet solver, max_iter=320K |
+| Step 100K |0.471| 2.36 | Default caffenet solver, max_iter=320K |
 | Poly lr, p=0.5, sqrt |0.483| 2.29 | bvlc_quick_googlenet_solver, All the way worse than "step", leading at finish |
 | Poly lr, p=2.0, sqr |0.483| 2.299 | |
 | Poly lr, p=1.0, linear |**0.493**|***2.24*** | |
@@ -165,7 +165,7 @@ RMSProp, lr=0.01, rms_decay=0.99
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| default |0.470| 2.36 | weight_decay=0.0005, L2, fc-dropout=0.5 |
+| default |0.471| 2.36 | weight_decay=0.0005, L2, fc-dropout=0.5 |
 | wd=0.0001 |0.450| 2.48 | weight_decay=0.0001, L2, fc-dropout=0.5 |
 | wd=0.00001 |0.450| 2.48 | weight_decay=0.00001, L2, fc-dropout=0.5 |
 | wd=0.00001_L1 |0.453| 2.45 | weight_decay=0.00001, L1, fc-dropout=0.5 |
@@ -182,7 +182,7 @@ Hypothesis about "same effective neurons = same performance" looks unvalidated
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| fc6,fc7=2048, dropout=0.5 |0.470| 2.36 | default |
+| fc6,fc7=2048, dropout=0.5 |0.471| 2.36 | default |
 | fc6,fc7=2048, dropout=0.3 | **0.497** | 2.25 | best for fc6,fc7=2048. (1-0.3)*2048=1433 neurons work each time |
 | fc6,fc7=4096, dropout=0.65 |0.465| 2.38 | (1-0.65)*4096=1433 neurons work each time |
 | fc6,fc7=6144, dropout=0.77 |0.447| 2.48 | (1-0.77)*6144=1433 neurons work each time |
@@ -240,7 +240,7 @@ ResNet attempts are moved to [ResNets.md](ResNets.md)
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| Default |**0.470**| **2.36** | Random flip, random crop 128x128 from 144xN, N > 144|
+| Default |**0.471**| **2.36** | Random flip, random crop 128x128 from 144xN, N > 144|
 | Drop 0.1 |0.306| 3.56 | + Input dropout 10%. not finished, 186K iters result |
 | Multiscale |0.462| 2.40 | Random flip, random crop 128x128 from ( 144xN, - 50%, 188xN - 20%, 256xN - 20%, 130xN - 10%)
 
@@ -250,7 +250,7 @@ ResNet attempts are moved to [ResNets.md](ResNets.md)
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| RGB |0.470| 2.36 | default, no changes. Input = 0.04 * (Img - [104, 117,124]) |
+| RGB |0.471| 2.36 | default, no changes. Input = 0.04 * (Img - [104, 117,124]) |
 | RGB_by_BN |0.469| 2.38 | Input = BatchNorm(Img)|
 | CLAHE| 0.467 | 2.38 | RGB -> LAB -> CLAHE(L)->RGB->BatchNorm(RGB) |
 | HISTEQ| 0.448 | 2.48 | RGB -> HiestEq |
@@ -309,7 +309,7 @@ ReLU non-linearity, fc6 and fc7 layer only
 ### BN-arch-init
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| Caffenet |0.470| 2.36 ||
+| Caffenet |0.471| 2.36 ||
 | Caffenet BN Before + scale&bias layer LSUV|0.478| 2.33 | |
 | Caffenet BN Before + scale&bias layer Ortho|0.482| 2.31 | |
 | Caffenet BN After LSUV | 0.499 | 2.21 | |
@@ -356,7 +356,7 @@ ReLU non-linearity, fc6 and fc7 layer only
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-|  Default |0.470| 2.36 | 290K iters stopped|
+|  Default |0.471| 2.36 | 290K iters stopped|
 |  NoBias |0.445| 2.50 | Biases initialized with zeros, lr_rate = 0|
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/other), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/other)

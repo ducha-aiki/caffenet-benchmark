@@ -15,7 +15,7 @@ Default augmentation: random crop 128x128 from 144xN image, 50% random horizonta
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| Default, 1.2M images |**0.470**| **2.36** | |
+| Default, 1.2M images |**0.471**| **2.36** | |
 | 600K images |0.379| 2.92 | |
 | 400K images |0.357| 3.10 | |
 | 200K images |0.277| 4.06 | |

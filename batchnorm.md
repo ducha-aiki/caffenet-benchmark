@@ -56,7 +56,7 @@ ReLU non-linearity, fc6 and fc7 layer only
 ### BN-arch-init
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| Caffenet |0.470| 2.36 ||
+| Caffenet |0.471| 2.36 ||
 | Caffenet BN Before + scale&bias layer LSUV|0.478| 2.33 | |
 | Caffenet BN Before + scale&bias layer Ortho|0.482| 2.31 | |
 | Caffenet BN After LSUV | 0.499 | 2.21 | |

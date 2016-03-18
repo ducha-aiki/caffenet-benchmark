@@ -11,7 +11,7 @@ The architecture is similar to CaffeNet, but has differences:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| RGB |0.470| 2.36 | default, no changes. Input = 0.04 * (Img - [104, 117,124]) |
+| RGB |0.471| 2.36 | default, no changes. Input = 0.04 * (Img - [104, 117,124]) |
 | RGB_by_BN |0.469| 2.38 | Input = BatchNorm(Img)|
 | CLAHE| 0.467 | 2.38 | RGB -> LAB -> CLAHE(L)->RGB->BatchNorm(RGB) |
 | HISTEQ| 0.448 | 2.48 | RGB -> HiestEq |

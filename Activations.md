@@ -14,7 +14,7 @@ Because LRN layers add nothing to accuracy, they were removed for speed reasons 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | [ReLU](http://machinelearning.wustl.edu/mlpapers/paper_files/icml2010_NairH10.pdf) |0.470| 2.36 | With LRN layers|
-| ReLU |0.470| 2.36 | No LRN, as in rest |
+| ReLU |0.471| 2.36 | No LRN, as in rest |
 | TanH |0.401| 2.78 |  |
 | [VLReLU](https://web.stanford.edu/~awni/papers/relu_hybrid_icml2013_final.pdf) |0.469| 2.40|y=max(x,x/3)|
 | [RReLU](http://arxiv.org/abs/1505.00853) |0.478| 2.32| |

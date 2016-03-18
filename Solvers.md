@@ -22,7 +22,7 @@ weight_decay: 0.0005
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| SGD with momentum |0.470| 2.36 | |
+| SGD with momentum |0.471| 2.36 | |
 | Nesterov |**0.473**|**2.34**|  |
 | RMSProp |0.327| 3.20 | rms_decay=0.9, delta=1.0  |
 | RMSProp | 0.453| 2.45 | rms_decay=0.9, delta=1.0, base_lr: 0.045, stepsize=10K. gamma=0.94 (from [here](https://github.com/smichalowski/google_inception_v3_for_caffe)) |

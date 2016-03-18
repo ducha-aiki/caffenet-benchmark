@@ -11,7 +11,7 @@ The architecture is similar to CaffeNet, but has differences:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool |0.470| 2.36 | 290K iters stopped|
+| MaxPool |0.471| 2.36 | 290K iters stopped|
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
 | AvgPool |0.435| 2.56 | |
 | Max+AvgPool | **0.483** | **2.29** | Element-wise sum|
@@ -22,7 +22,7 @@ The architecture is similar to CaffeNet, but has differences:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool 3x3/2 |0.470| 2.36 | default alexnet|
+| MaxPool 3x3/2 |0.471| 2.36 | default alexnet|
 | MaxPool 2x2/2 | 0.484 | 2.29 |Leads to larger feature map, Pool5=4x4 instead of  3x3 |
 | MaxPool 3x3/2 pad1 | **0.488** | **2.25** |Leads to even larger feature map, Pool5=5x5 instead of  3x3 |
 
