@@ -44,7 +44,7 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool |0.471| 2.36 | 290K iters stopped|
+| MaxPool |0.471| 2.36 ||
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
 | AvgPool |0.435| 2.56 | |
 | Max+AvgPool | **0.483** | **2.29** | Element-wise sum|
@@ -356,7 +356,7 @@ ReLU non-linearity, fc6 and fc7 layer only
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-|  Default |0.471| 2.36 | 290K iters stopped|
+|  Default |0.471| 2.36 ||
 |  NoBias |0.445| 2.50 | Biases initialized with zeros, lr_rate = 0|
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/other), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/other)
