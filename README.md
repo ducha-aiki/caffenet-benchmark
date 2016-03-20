@@ -38,7 +38,9 @@ On-going evaluations with graphs:
 | [PReLU](http://arxiv.org/abs/1502.01852) |0.485| 2.29 | |
 | [ELU](http://arxiv.org/abs/1511.07289) |**0.488**| **2.28**| |
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
-| No |0.387 | 2.98 | No non-linearity, 287K Iters, in progress |
+| No |0.389 | 2.93 | No non-linearity |
+
+
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/activations), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/activations)
 
 ### Pooling type
