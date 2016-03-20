@@ -324,7 +324,7 @@ ReLU non-linearity, fc6 and fc7 layer only
 | GoogLeNet BN Before + scale&bias layer LSUV||  | In progress|
 | GoogLeNet BN Before + scale&bias layer Ortho| 0.607| 1.67 | |
 | GoogLeNet BN After LSUV |0.596| 1.70 | |
-| GoogLeNet BN After Ortho | |  | In progress|
+| GoogLeNet BN After Ortho |0.584 | 1.77  | |
 
     
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/bn_init), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/bn_init)
