@@ -25,7 +25,6 @@ Because LRN layers add nothing to accuracy, they were removed for speed reasons 
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
 | No |0.389 | 2.93 | No non-linearity |
 
-
 ### BN and activations
 
 | Name    | Accuracy      | LogLoss | Comments  |
@@ -36,10 +35,10 @@ Because LRN layers add nothing to accuracy, they were removed for speed reasons 
 | ELU |0.498| 2.23 | |
 | Maxout |0.487| 2.28| |
 | Sigmoid |0.475| 2.35| |
+| No |0.384| 2.96| |
 
 
 ![CaffeNet128 test accuracy](/logs/activations/img/0.png)
-
 
 ![CaffeNet128 test loss](/logs/activations/img/2.png)
 
