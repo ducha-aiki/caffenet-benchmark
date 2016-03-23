@@ -24,11 +24,11 @@ All the variants have similar computational complexity, if other not explicit sa
 [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/conv1-inpit)
 
 
-![CaffeNet128 test accuracy](/logs/conv1-input/img/0_dataset.png)
+![CaffeNet128 test accuracy](/logs/conv1-input/img/0.png)
 
 
-![CaffeNet128 test loss](/logs/conv1-input/img/2_dataset.png)
+![CaffeNet128 test loss](/logs/conv1-input/img/2.png)
 
 
-![CaffeNet128 train loss](/logs/conv1-input/img/6_dataset.png)
+![CaffeNet128 train loss](/logs/conv1-input/img/6.png)
 
