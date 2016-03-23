@@ -13,6 +13,7 @@ On-going evaluations with graphs:
 - [solvers](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Solvers.md)
 - [lr_policy](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Lr_policy.md)
 - [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
+- [First layer parameters] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/First_layer_input.md)
 - [classfier architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Clf_arch.md)
 - [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
 - [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
@@ -82,6 +83,18 @@ pool5pad *Nets mistakenly were trained with ELU non-linearity instead of default
 | fc6=512C3_1024C3_1536C1_drop |0.491| 2.29 | pool5 zero pad -> fc6 = conv 3x3x512 -> fc7=conv 3x3x1024 -> drop 0.3 -> 1x1x1536 -> drop 0.5-> fc8 as 1x1 conv -> ave_pool.  |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/clf_arch), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/clf_arch)
+
+### Conv1 parameters
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| ------:|:-----------|
+| Default, 128_K11_S4 |  **0.471** | **2.36** | Input size =128x128px, conv1 = 11x11x96, stride = 4 |
+| 224_K11_S8 |0.453| 2.45 | Input size =256x256px, conv1 = 11x11x96, stride = 8. Not finished yet |
+| 64_K5_S2 | 0.445 | 2.50 | Input size =64x64px, conv1 = 5x5x96, stride = 2 |
+| 32_K3_S1| 0.390 | 2.84 | Input size =32x32px, conv1 = 3x3x96, stride = 1 |
+| 4x slower, 227_K11_S4 | 0.565 | 1.87 | Input size =227x227px, conv1 = 11x11x96, stride = 4,  Not finished yet |
+
+[logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/conv1-inpit)
 
 ## Squeezing representation
 
