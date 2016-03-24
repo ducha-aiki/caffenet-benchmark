@@ -11,15 +11,31 @@ Default augmentation: random crop 128x128 from 144xN image, 50% random horizonta
 
 
 
-### Train augmentation
+### Dataset size
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| Default, 1.2M images |**0.471**| **2.36** | |
-| 600K images |0.379| 2.92 | |
-| 400K images |0.357| 3.10 | |
-| 200K images |0.277| 4.06 | |
+| Default, 1.2M images | **0.471** | **2.36** | |
+| 800K images |0.438| 2.54 | |
+| 600K images |0.425| 2.63 | |
+| 400K images |0.393| 2.92 | |
+| 200K images |0.305| 4.04 | |
 
+
+
+### Dataset size, no RGB scaling 
+Or why input var=1 for LSUV is so important
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| 800K images |0.438| 2.54 | |
+| 800K images, no scale |0.379| 2.92 | |
+| 600K images |0.425| 2.63 | |
+| 600K images, no scale |0.379| 2.92 | |
+| 400K images |0.393| 2.92 | |
+| 400K images, no scale |0.357| 3.10 | |
+| 200K images |0.305| 4.04 | |
+| 200K images, no scale |0.277| 4.06 | |
 
 [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib)
 
