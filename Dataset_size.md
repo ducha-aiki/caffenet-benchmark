@@ -29,7 +29,6 @@ Or why input var=1 for LSUV is so important
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | 800K images |0.438| 2.54 | |
-| 800K images, no scale |0.379| 2.92 | |
 | 600K images |0.425| 2.63 | |
 | 600K images, no scale |0.379| 2.92 | |
 | 400K images |0.393| 2.92 | |
