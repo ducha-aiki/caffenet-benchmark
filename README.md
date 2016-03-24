@@ -90,11 +90,12 @@ pool5pad *Nets mistakenly were trained with ELU non-linearity instead of default
 | -------|---------:| ------:|:-----------|
 | Default, 128_K11_S4 |  **0.471** | **2.36** | Input size =128x128px, conv1 = 11x11x96, stride = 4 |
 | 224_K11_S8 |0.453| 2.45 | Input size =256x256px, conv1 = 11x11x96, stride = 8. Not finished yet |
+| 96_K7_S3 | 0.459 | 2.43 | Input size =96x96px, conv1 = 7x7x96, stride = 3 |
 | 64_K5_S2 | 0.445 | 2.50 | Input size =64x64px, conv1 = 5x5x96, stride = 2 |
 | 32_K3_S1| 0.390 | 2.84 | Input size =32x32px, conv1 = 3x3x96, stride = 1 |
 | 4x slower, 227_K11_S4 | 0.565 | 1.87 | Input size =227x227px, conv1 = 11x11x96, stride = 4,  Not finished yet |
 
-[logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/conv1-inpit)
+[prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/conv1-input), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/conv1-input)
 
 ## Squeezing representation
 
