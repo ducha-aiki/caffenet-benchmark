@@ -24,7 +24,8 @@ The architecture is similar to CaffeNet, but has differences:
 | RGB and log(RGB)->10->3 VlReLU | 0.482 | 0.482 | RGB and log (RGB) -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
 | NN-Scale |0.467| 2.38 | Nearest neightbor instead of linear interpolation for rescale. Faster, but worse :(|
 | concat_rgb_each_pool |0.441| 2.51 | Concat avepoolRGB with each pool |
-
+| OpenCV RGB2Gray |0.413| 2.70 |RGB->Grayscale Gray = 0.299 R + 0.587 G + 0.114 B |
+| Learned RGB2Gray |0.419| 2.66 |RGB->conv1x1x1  |
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/colorspace), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/colorspace)
