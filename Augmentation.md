@@ -10,7 +10,8 @@ The architecture is similar to CaffeNet, but has differences:
 Default augmentation: random crop 128x128 from 144xN image, 50% random horizontal flip.
 Additional augmentations:
 - dropout of input data, dropout_ratio = 0.1
-- multiscale:
+- multiscale
+- random 5 deg. rotation
 
 
 ### Train augmentation
@@ -20,6 +21,7 @@ Additional augmentations:
 | Default |**0.471**| **2.36** | Random flip, random crop 128x128 from 144xN, N > 144|
 | Drop 0.1 |0.306| 3.56 | + Input dropout 10%. not finished, 186K iters result |
 | Multiscale |0.462| 2.40 | Random flip, random crop 128x128 from ( 144xN, - 50%, 188xN - 20%, 256xN - 20%, 130xN - 10%)
+| 5 deg rot |0.448| 2.47 | Random rotation to [0..5] degrees. |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/augmentation), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/augmentation)
 
