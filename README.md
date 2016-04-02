@@ -20,6 +20,7 @@ On-going evaluations with graphs:
 - [colorspace] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Colorspace.md)
 - [regularization] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Regularization.md)
 - [resnets, not yet successfull] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/ResNets.md)
+- [batch size] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/BatchSize.md)
 - [dataset size] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Dataset_size.md)
 - [other mix] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Misc.md)
 
@@ -348,6 +349,26 @@ ReLU non-linearity, fc6 and fc7 layer only
 
     
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/bn_init), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/bn_init)
+
+### Batch size
+n/c - not converged (in starting iterations)
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| BS=256 |0.471| 2.36 | Default, lr=0.01, 450K iters |
+| BS=128 |0.407| 2.77 | lr=0.01, 900K iters |
+| BS=64 | 0.384| 2.89 | lr=0.01, 1800K iters |
+| BS=32 |-| - | lr=0.01, 3600K iters, in progress |
+| BS=128, 2xlr | n/c | n/c | lr=0.02 |
+| BS=64, 4xlr | n/c| n/c |  lr=0.04 |
+| BS=32, 8xlr | n/c | n/c | lr=0.08 |
+| BS=128, 1/2 lr | - | -| lr=0.005, in progress |
+| BS=64, 1/4 lr| - | -|  lr=0.0025, in progress |
+| BS=32, 1/8 lr| - | -|  lr=0.00125, in progress |
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/batch_size), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/batch_size)
+
+
 
 ### From contributors
 
