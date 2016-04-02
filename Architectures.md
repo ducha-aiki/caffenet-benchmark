@@ -27,6 +27,8 @@ CaffeNet only
 | [DarkNet128BN](http://pjreddie.com/darknet/imagenet/#reference) |0.502| 2.25 | 16C3->MP2->32C3->MP2->64C3->MP2->128C3->MP2->256C3->MP2->512C3->MP2->1024C3->1000CLF.BN|
 | | | | + PreLU + base_lr=0.035, exp lr_policy, 160K iters |
 | CaffeNet128, no group conv |0.487 | 2.26 | Plain convolution instead group one|
+| [NiN128](http://arxiv.org/abs/1312.4400) |0.519 |  2.15 | Step lr_policy. Be carefull to not use dropout on maxpool in-place|
+
 
 
 Others
