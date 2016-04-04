@@ -1,4 +1,4 @@
-This is quick evaluation of batch size imfluence on ImageNet-2012. 
+This is quick evaluation of batch size influence on ImageNet-2012. 
 
 The architecture is similar to CaffeNet, but has differences:
 
@@ -7,12 +7,14 @@ The architecture is similar to CaffeNet, but has differences:
 3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 
 
-### Batch size
+### Batch size. Sorry, guys, mistake
+
+I have got results for TanH network don`t know why :( So not this big difference
 n/c - not converged (in starting iterations)
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| BS=256 |0.471| 2.36 | Default, lr=0.01, 320K iters |
+| BS=256 |0.401| 2.78 | **TanH**, lr=0.01, 320K iters |
 | BS=128 |0.407| 2.77 | lr=0.01, 640K iters |
 | BS=128, 2xlr | n/c | n/c | lr=0.02 |
 | BS=128, 1/2 lr | 0.402 | 2.77| lr=0.005 |
