@@ -350,13 +350,15 @@ ReLU non-linearity, fc6 and fc7 layer only
     
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/bn_init), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/bn_init)
 
-### Batch size
+### Batch size. Sorry, guys, mistake
+
+I have got results for TanH network don`t know why :( So not this big difference
 n/c - not converged (in starting iterations)
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| BS=256 |0.471| 2.36 | Default, lr=0.01, 320K iters |
-| BS=128 |0.407| 2.77 | lr=0.01, 640K iters |
+| BS=256 |0.401| 2.78 | **TanH**, lr=0.01, 320K iters |
+| BS=128 | **0.407** | **2.77** | lr=0.01, 640K iters |
 | BS=128, 2xlr | n/c | n/c | lr=0.02 |
 | BS=128, 1/2 lr | 0.402 | 2.77| lr=0.005 |
 | BS=64 | 0.384| 2.89 | lr=0.01, 1280K iters |
@@ -365,7 +367,6 @@ n/c - not converged (in starting iterations)
 | BS=32 |0.373| 2.95 | lr=0.01, 2560K iter
 | BS=32, 8xlr | n/c | n/c | lr=0.08 |
 | BS=32, 1/8 lr| - | -|  lr=0.00125, in progress |
-
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/batch_size), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/batch_size)
 
