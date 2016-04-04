@@ -12,17 +12,16 @@ n/c - not converged (in starting iterations)
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| BS=256 |0.471| 2.36 | Default, lr=0.01, 450K iters |
-| BS=128 |0.407| 2.77 | lr=0.01, 900K iters |
-| BS=64 | 0.384| 2.89 | lr=0.01, 1800K iters |
-| BS=32 |-| - | lr=0.01, 3600K iters, in progress |
+| BS=256 |0.471| 2.36 | Default, lr=0.01, 320K iters |
+| BS=128 |0.407| 2.77 | lr=0.01, 640K iters |
 | BS=128, 2xlr | n/c | n/c | lr=0.02 |
+| BS=128, 1/2 lr | 0.402 | 2.77| lr=0.005 |
+| BS=64 | 0.384| 2.89 | lr=0.01, 1280K iters |
 | BS=64, 4xlr | n/c| n/c |  lr=0.04 |
+| BS=64, 1/4 lr| 0.401 | 2.78|  lr=0.0025 |
+| BS=32 |0.373| 2.95 | lr=0.01, 2560K iter
 | BS=32, 8xlr | n/c | n/c | lr=0.08 |
-| BS=128, 1/2 lr | - | -| lr=0.005, in progress |
-| BS=64, 1/4 lr| - | -|  lr=0.0025, in progress |
 | BS=32, 1/8 lr| - | -|  lr=0.00125, in progress |
-
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/batch_size), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/batch_size)
@@ -33,6 +32,8 @@ n/c - not converged (in starting iterations)
 
 
 ![CaffeNet128 test loss](/logs/batch_size/img/2.png)
+
+![CaffeNet128 learning rate](/logs/batch_size/img/2.png)
 
 
 ![CaffeNet128 train loss](/logs/batch_size/img/6.png)
