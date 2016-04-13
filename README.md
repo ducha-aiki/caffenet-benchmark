@@ -318,7 +318,8 @@ So in all next experiments, BN is put after non-linearity
 | ELU |0.498| 2.23 | |
 | Maxout |0.487| 2.28| |
 | Sigmoid |0.475| 2.35| |
-| No |0.384| 2.96| |
+| TanH |0.448| 2.50 | |
+| No |0.384| 2.96 | |
 
 ### BN and dropout
 
