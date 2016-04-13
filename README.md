@@ -22,6 +22,7 @@ On-going evaluations with graphs:
 - [resnets, not yet successfull] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/ResNets.md)
 - [batch size] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/BatchSize.md)
 - [dataset size] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Dataset_size.md)
+- [Network width] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Complexity.md)
 - [other mix] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Misc.md)
 
 
@@ -397,8 +398,15 @@ There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/contrib), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib)
 
+### Network width
 
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Default | **0.471** | **2.36** | |
+| sqrt(2) narrower | 0.460 | 2.41 | |
+| 2x narrower |  0.416 | 2.68 | |
 
+[logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib/complexity)
 
 ### Dataset size
 
