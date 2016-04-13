@@ -7,9 +7,32 @@ The architecture is similar to CaffeNet, but has differences:
 3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 
 
-### Batch size. Sorry, guys, mistake
+### Batch size, ReLU
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| BS=1024 | 0.419| 2.65 | lr=0.01, 80K iters |
+| BS=512 |0.455| 2.46 | lr=0.01, 160K iters |
+| BS=256, **default** |0.471| 2.36 |  lr=0.01, 320K iters |
+| BS=128 |0.472| 2.35 | lr=0.01, 640K iters |
+| BS=128, 1/2 lr | 0.470 | 2.36| lr=0.005, 640K iters |
+| BS=64|-| -|  lr=0.01, 1280K iters, in progress |
+| BS=64, 1/4 lr| **0.475** | **2.34** |  lr=0.0025, 1280K iters |
+| BS=32 |0.463| 2.40 | lr=0.01, 2560K iter |
+| BS=32, 1/8 lr| 0.470 | 2.37|  lr=0.00125,  2560K iter|
 
-I have got results for TanH network don`t know why :( So not this big difference
+
+![CaffeNet128 test accuracy](/logs/batch_size/img/0.png)
+
+![CaffeNet128 test loss](/logs/batch_size/img/2.png)
+
+![CaffeNet128 train loss](/logs/batch_size/img/6.png)
+
+
+
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/batch_size), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/batch_size)
+
+### Batch size, TanH.
+
 n/c - not converged (in starting iterations)
 
 | Name    | Accuracy      | LogLoss | Comments  |
@@ -26,19 +49,7 @@ n/c - not converged (in starting iterations)
 | BS=32, 1/8 lr| - | -|  lr=0.00125, in progress |
 
 
-[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/batch_size), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/batch_size)
-
-
-
-![CaffeNet128 test accuracy](/logs/batch_size/img/0.png)
-
-
-![CaffeNet128 test loss](/logs/batch_size/img/2.png)
-
-![CaffeNet128 learning rate](/logs/batch_size/img/2.png)
-
-
-![CaffeNet128 train loss](/logs/batch_size/img/6.png)
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/batch_size/tanh), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/batch_size/tanh)
 
 
 

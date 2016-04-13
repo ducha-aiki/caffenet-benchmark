@@ -92,7 +92,7 @@ layer {
 }
 layer {
   name: "relu1"
- type: "TanH"
+ type: "ReLU"
   bottom: "conv1"
   top: "relu1"
 }
@@ -137,7 +137,7 @@ layer {
 }
 layer {
   name: "relu2"
- type: "TanH"
+ type: "ReLU"
   bottom: "conv2"
   top: "relu2"
 }
@@ -181,7 +181,7 @@ layer {
 }
 layer {
   name: "relu3"
- type: "TanH"
+ type: "ReLU"
   bottom: "conv3"
   top: "relu3"
 }
@@ -215,7 +215,7 @@ layer {
 }
 layer {
   name: "relu4"
- type: "TanH"
+ type: "ReLU"
   bottom: "conv4"
   top: "relu4"
 }
@@ -249,7 +249,7 @@ layer {
 }
 layer {
   name: "relu5"
- type: "TanH"
+ type: "ReLU"
   bottom: "conv5"
   top: "relu5"
 }
@@ -291,7 +291,7 @@ layer {
 }
 layer {
   name: "relu6"
- type: "TanH"
+ type: "ReLU"
   bottom: "fc6"
   top: "relu6"
 }
@@ -331,7 +331,7 @@ layer {
 }
 layer {
   name: "relu7"
- type: "TanH"
+ type: "ReLU"
   bottom: "fc7"
   top: "relu7"
 }

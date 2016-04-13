@@ -13,6 +13,7 @@ The architecture is similar to CaffeNet, but has differences:
 | -------|---------:| -------:|:-----------|
 | MaxPool |0.471| 2.36 | 290K iters stopped|
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
+| Stochastic, no dropout |0.429| 2.96| Stoch pool does not prevent overfitting without dropout :(. Good start,bad finish|
 | AvgPool |0.435| 2.56 | |
 | Max+AvgPool | **0.483** | **2.29** | Element-wise sum|
 | NoPool |0.472| 2.35 | Strided conv2,conv3,conv4 |

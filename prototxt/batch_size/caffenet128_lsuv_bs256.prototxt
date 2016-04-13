@@ -1,18 +1,19 @@
-test_iter: 200
+test_iter: 1000
 test_interval: 1000
-base_lr: 0.01
+test_initialization: true
+base_lr: 0.0025
 lr_policy: "step"
 gamma: 0.1
-stepsize: 100000
+stepsize: 400000
 display: 20
-max_iter: 320000
+max_iter: 1280000
 momentum: 0.9
 weight_decay: 0.0005
-snapshot: 10000
+snapshot: 80000
 iter_size: 1
 solver_mode: GPU
 solver_type: SGD
-snapshot_prefix: "snapshots/caffenet128_lsuv"
+snapshot_prefix: "snapshots/caffenet128_no_lrn_lsuv_tanh_bs64_00025"
 
 net_param { 
 name: "CaffeNet"
@@ -32,24 +33,11 @@ layer {
     mean_value: 104
     mean_value: 117
     mean_value: 124
-    resize_param {
-      prob: 1.0
-      resize_mode: FIT_SMALL_SIZE
-      height: 144
-      width: 144
-      pad_mode: MIRRORED
-      pad_value: 104
-      pad_value: 117
-      pad_value: 124
-      interp_mode: CUBIC
-      center_object: false
-      max_angle: 0
-    }
   }
   data_param {
-    source: "/home/share/storage/datasets/imagenet/lmdb/ilsvrc12_train_lmdb"
+    source: '/home/old-ufo/storage/datasets/imagenet/imgs128/lmdb/ilsvrc12_128_train_lmdb'
     backend: LMDB
-    batch_size: 256
+    batch_size: 64
   }
 }
 layer {
@@ -68,24 +56,11 @@ layer {
     mean_value: 104
     mean_value: 117
     mean_value: 123
-    resize_param {
-      prob: 1.0
-      resize_mode: FIT_SMALL_SIZE
-      height: 144
-      width: 144
-      pad_mode: MIRRORED
-      pad_value: 104
-      pad_value: 117
-      pad_value: 124
-      interp_mode: CUBIC
-      center_object: false
-      max_angle: 0
-    }
   }
   data_param {
-    source: "/home/share/storage/datasets/imagenet/lmdb/ilsvrc12_val_lmdb"    
+    source: '/home/old-ufo/storage/datasets/imagenet/imgs128/lmdb/ilsvrc12_128_val_lmdb'   
     backend: LMDB
-    batch_size: 250
+    batch_size: 50
   }
 }
 layer {
@@ -117,14 +92,14 @@ layer {
 }
 layer {
   name: "relu1"
-  type: "ReLU"
+ type: "ReLU"
   bottom: "conv1"
-  top: "conv1"
+  top: "relu1"
 }
 layer {
   name: "pool1"
   type: "Pooling"
-  bottom: "conv1"
+  bottom: "relu1"
   top: "pool1"
   pooling_param {
     pool: MAX
@@ -133,20 +108,9 @@ layer {
   }
 }
 layer {
-  name: "norm1"
-  type: "LRN"
-  bottom: "pool1"
-  top: "norm1"
-  lrn_param {
-    local_size: 5
-    alpha: 0.0001
-    beta: 0.75
-  }
-}
-layer {
   name: "conv2"
   type: "Convolution"
-  bottom: "norm1"
+  bottom: "pool1"
   top: "conv2"
   param {
     lr_mult: 1
@@ -173,14 +137,14 @@ layer {
 }
 layer {
   name: "relu2"
-  type: "ReLU"
+ type: "ReLU"
   bottom: "conv2"
-  top: "conv2"
+  top: "relu2"
 }
 layer {
   name: "pool2"
   type: "Pooling"
-  bottom: "conv2"
+  bottom: "relu2"
   top: "pool2"
   pooling_param {
     pool: MAX
@@ -189,20 +153,9 @@ layer {
   }
 }
 layer {
-  name: "norm2"
-  type: "LRN"
-  bottom: "pool2"
-  top: "norm2"
-  lrn_param {
-    local_size: 5
-    alpha: 0.0001
-    beta: 0.75
-  }
-}
-layer {
   name: "conv3"
   type: "Convolution"
-  bottom: "norm2"
+  bottom: "pool2"
   top: "conv3"
   param {
     lr_mult: 1
@@ -228,14 +181,14 @@ layer {
 }
 layer {
   name: "relu3"
-  type: "ReLU"
+ type: "ReLU"
   bottom: "conv3"
-  top: "conv3"
+  top: "relu3"
 }
 layer {
   name: "conv4"
   type: "Convolution"
-  bottom: "conv3"
+  bottom: "relu3"
   top: "conv4"
   param {
     lr_mult: 1
@@ -262,14 +215,14 @@ layer {
 }
 layer {
   name: "relu4"
-  type: "ReLU"
+ type: "ReLU"
   bottom: "conv4"
-  top: "conv4"
+  top: "relu4"
 }
 layer {
   name: "conv5"
   type: "Convolution"
-  bottom: "conv4"
+  bottom: "relu4"
   top: "conv5"
   param {
     lr_mult: 1
@@ -296,14 +249,14 @@ layer {
 }
 layer {
   name: "relu5"
-  type: "ReLU"
+ type: "ReLU"
   bottom: "conv5"
-  top: "conv5"
+  top: "relu5"
 }
 layer {
   name: "pool5"
   type: "Pooling"
-  bottom: "conv5"
+  bottom: "relu5"
   top: "pool5"
   pooling_param {
     pool: MAX
@@ -338,15 +291,15 @@ layer {
 }
 layer {
   name: "relu6"
-  type: "ReLU"
+ type: "ReLU"
   bottom: "fc6"
-  top: "fc6"
+  top: "relu6"
 }
 layer {
   name: "drop6"
   type: "Dropout"
-  bottom: "fc6"
-  top: "fc6"
+  bottom: "relu6"
+  top: "drop6"
   dropout_param {
     dropout_ratio: 0.5
   }
@@ -354,7 +307,7 @@ layer {
 layer {
   name: "fc7"
   type: "InnerProduct"
-  bottom: "fc6"
+  bottom: "drop6"
   top: "fc7"
   param {
     lr_mult: 1
@@ -378,15 +331,15 @@ layer {
 }
 layer {
   name: "relu7"
-  type: "ReLU"
+ type: "ReLU"
   bottom: "fc7"
-  top: "fc7"
+  top: "relu7"
 }
 layer {
   name: "drop7"
   type: "Dropout"
-  bottom: "fc7"
-  top: "fc7"
+  bottom: "relu7"
+  top: "drop7"
   dropout_param {
     dropout_ratio: 0.5
   }
@@ -394,7 +347,7 @@ layer {
 layer {
   name: "fc8"
   type: "InnerProduct"
-  bottom: "fc7"
+  bottom: "drop7"
   top: "fc8"
   param {
     lr_mult: 1

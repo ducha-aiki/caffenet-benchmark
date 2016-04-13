@@ -49,8 +49,9 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool |0.471| 2.36 ||
+| MaxPool |0.471| 2.36 | 290K iters stopped|
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
+| Stochastic, no dropout |0.429| 2.96| Stoch pool does not prevent overfitting without dropout :(. Good start,bad finish|
 | AvgPool |0.435| 2.56 | |
 | Max+AvgPool | **0.483** | **2.29** | Element-wise sum|
 | NoPool |0.472| 2.35 | Strided conv2,conv3,conv4 |
@@ -352,23 +353,21 @@ ReLU non-linearity, fc6 and fc7 layer only
     
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/bn_init), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/bn_init)
 
-### Batch size. Sorry, guys, mistake
+### Batch size, ReLU
 
-I have got results for TanH network don`t know why :( So not this big difference
-n/c - not converged (in starting iterations)
+Tanh results are moved [here] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/BatchSize.md)
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| BS=256 |0.401| 2.78 | **TanH**, lr=0.01, 320K iters |
-| BS=128 | **0.407** | **2.77** | lr=0.01, 640K iters |
-| BS=128, 2xlr | n/c | n/c | lr=0.02 |
-| BS=128, 1/2 lr | 0.402 | 2.77| lr=0.005 |
-| BS=64 | 0.384| 2.89 | lr=0.01, 1280K iters |
-| BS=64, 4xlr | n/c| n/c |  lr=0.04 |
-| BS=64, 1/4 lr| 0.401 | 2.78|  lr=0.0025 |
-| BS=32 |0.373| 2.95 | lr=0.01, 2560K iter
-| BS=32, 8xlr | n/c | n/c | lr=0.08 |
-| BS=32, 1/8 lr| - | -|  lr=0.00125, in progress |
+| BS=1024 | 0.419| 2.65 | lr=0.01, 80K iters |
+| BS=512 |0.455| 2.46 | lr=0.01, 160K iters |
+| BS=256, **default** |0.471| 2.36 |  lr=0.01, 320K iters |
+| BS=128 |0.472| 2.35 | lr=0.01, 640K iters |
+| BS=128, 1/2 lr | 0.470 | 2.36| lr=0.005, 640K iters |
+| BS=64|-| -|  lr=0.01, 1280K iters, in progress |
+| BS=64, 1/4 lr| **0.475** | **2.34** |  lr=0.0025, 1280K iters |
+| BS=32 |0.463| 2.40 | lr=0.01, 2560K iter |
+| BS=32, 1/8 lr| 0.470 | 2.37|  lr=0.00125,  2560K iter|
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/batch_size), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/batch_size)
 
