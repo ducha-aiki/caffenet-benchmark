@@ -24,6 +24,8 @@ Because LRN layers add nothing to accuracy, they were removed for speed reasons 
 | [ELU](http://arxiv.org/abs/1511.07289) |**0.488**| **2.28**| |
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
 | No |0.389 | 2.93 | No non-linearity |
+| [APL](http://arxiv.org/abs/1412.6830)2 |0.471 | 2.38 | 2 linear pieces. Unlike other activations, [current author`s implementation](https://github.com/forestagostinelli/Learned-Activation-Functions-Source/issues/4) leads to different parameters for each x,y position of neuron |
+
 
 ### BN and activations
 
