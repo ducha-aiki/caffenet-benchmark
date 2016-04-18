@@ -367,7 +367,7 @@ Tanh results are moved [here] (https://github.com/ducha-aiki/caffenet-benchmark/
 | BS=256, **default** |0.471| 2.36 |  lr=0.01, 320K iters |
 | BS=128 |0.472| 2.35 | lr=0.01, 640K iters |
 | BS=128, 1/2 lr | 0.470 | 2.36| lr=0.005, 640K iters |
-| BS=64|-| -|  lr=0.01, 1280K iters, in progress |
+| BS=64| 0.471| **2.34** |  lr=0.01, 1280K iters |
 | BS=64, 1/4 lr| **0.475** | **2.34** |  lr=0.0025, 1280K iters |
 | BS=32 |0.463| 2.40 | lr=0.01, 2560K iter |
 | BS=32, 1/8 lr| 0.470 | 2.37|  lr=0.00125,  2560K iter|
