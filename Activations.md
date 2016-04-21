@@ -22,12 +22,13 @@ Because LRN layers add nothing to accuracy, they were removed for speed reasons 
 | [Maxout](http://arxiv.org/abs/1302.4389) |0.482| 2.30| sqrt(2) narrower layers, 2 pieces. Same complexity, as for ReLU|
 | [Maxout](http://arxiv.org/abs/1302.4389) | *0.517* | *2.12* | same width layers, 2 pieces|
 | [PReLU](http://arxiv.org/abs/1502.01852) |0.485| 2.29 | |
-| [ELU](http://arxiv.org/abs/1511.07289) |**0.488**| **2.28**| |
+| [ELU](http://arxiv.org/abs/1511.07289) |0.488| 2.28| |
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
 | No |0.389 | 2.93 | No non-linearity |
 | [APL](http://arxiv.org/abs/1412.6830)2 |0.471 | 2.38 | 2 linear pieces. Unlike other activations, [current author`s implementation](https://github.com/forestagostinelli/Learned-Activation-Functions-Source/issues/4) leads to different parameters for each x,y position of neuron |
 | [APL](http://arxiv.org/abs/1412.6830)5 |0.465 | 2.39 | 5 linear pieces. Unlike other activations, [current author`s implementation](https://github.com/forestagostinelli/Learned-Activation-Functions-Source/issues/4) leads to different parameters for each x,y position of neuron |
-| ConvReLU,FCMaxout2 | **0.490** | **2.26** | ReLU in convolution, Maxout (sqrt(2) narrower) 2 pieces in FC. Inspired by kaggle and [INVESTIGATION OF MAXOUT NETWORKS FOR SPEECH RECOGNITION](http://www.cstr.ed.ac.uk/downloads/publications/2014/Swietojanski_ICASSP14.pdf)*  |
+| ConvReLU,FCMaxout2 | 0.490 | 2.26 | ReLU in convolution, Maxout (sqrt(2) narrower) 2 pieces in FC. Inspired by kaggle and [INVESTIGATION OF MAXOUT NETWORKS FOR SPEECH RECOGNITION](http://www.cstr.ed.ac.uk/downloads/publications/2014/Swietojanski_ICASSP14.pdf)*  |
+| ConvELU,FCMaxout2 | **0.499** | **2.22** | ELU in convolution, Maxout (sqrt(2) narrower) 2 pieces in FC.  |
 
 *
 >The above analyses show that the bottom layers seem to waste
