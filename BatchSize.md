@@ -10,7 +10,9 @@ The architecture is similar to CaffeNet, but has differences:
 ### Batch size, ReLU
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
+| BS=1024, 4xlr | 0.465| 2.38 | lr=0.04, 80K iters |
 | BS=1024 | 0.419| 2.65 | lr=0.01, 80K iters |
+| BS=512, 2xlr |0.469| 2.37 | lr=0.02, 160K iters |
 | BS=512 |0.455| 2.46 | lr=0.01, 160K iters |
 | BS=256, **default** |0.471| 2.36 |  lr=0.01, 320K iters |
 | BS=128 |0.472| 2.35 | lr=0.01, 640K iters |
@@ -19,14 +21,13 @@ The architecture is similar to CaffeNet, but has differences:
 | BS=64, 1/4 lr| **0.475** | **2.34** |  lr=0.0025, 1280K iters |
 | BS=32 |0.463| 2.40 | lr=0.01, 2560K iter |
 | BS=32, 1/8 lr| 0.470 | 2.37|  lr=0.00125,  2560K iter|
+| BS=1, 1/256 lr| 0.474 | 2.35|  lr=3.9063e-05,  81920K iter. Online training|
 
+Graph below shows test accuracy as function of #epoch, so scale is batch_size independent.
 
 ![CaffeNet128 test accuracy](/logs/batch_size/img/0.png)
 
-![CaffeNet128 test loss](/logs/batch_size/img/2.png)
-
-![CaffeNet128 train loss](/logs/batch_size/img/6.png)
-
+So general recommendation: too big batch_sizes leads to a bit inferior results, but in general batch_size should be selected based computation speed. If learning rate is adjusted, than no practial difference between different batch sizes.
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/batch_size), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/batch_size)
