@@ -7,7 +7,7 @@ The basic architecture is similar to CaffeNet, but has several differences:
 3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 4. Because LRN layers add nothing to accuracy (validated [here](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)), they were removed for speed reasons in most experiments.
 
-Taking into account http://beta.openreview.net/forum?id=OM0jKROjrFp57ZJjtNkv, results can vary from run to run (data order is the same, but random seeds are different). However, I haven`t experienced results difference for several CaffeNet-ReLU training runs.
+Taking into account [Neural Network Training Variations in Speech and Subsequent Performance Evaluation](http://beta.openreview.net/forum?id=OM0jKROjrFp57ZJjtNkv), results can vary from run to run (data order is the same, but random seeds are different). However, I haven`t experienced results difference for several CaffeNet-ReLU training runs.
 
 On-going evaluations with graphs:
 - [activations](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Activations.md)
