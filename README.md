@@ -7,6 +7,8 @@ The basic architecture is similar to CaffeNet, but has several differences:
 3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
 4. Because LRN layers add nothing to accuracy (validated [here](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)), they were removed for speed reasons in most experiments.
 
+Taking into account [Neural Network Training Variations in Speech and Subsequent Performance Evaluation](http://beta.openreview.net/forum?id=OM0jKROjrFp57ZJjtNkv), results can vary from run to run (data order is the same, but random seeds are different). However, I haven`t experienced results difference for several CaffeNet-ReLU training runs.
+
 On-going evaluations with graphs:
 - [activations](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Activations.md)
 - [pooling](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Pooling.md)
@@ -418,9 +420,12 @@ There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| Default | **0.471** | **2.36** | |
+| 2 wider| **0.533** | **2.04** | |
+| sqrt(2) wider | 0.506 | 2.17 | |
+| Default | 0.471 | 2.36 | |
 | sqrt(2) narrower | 0.460 | 2.41 | |
 | 2x narrower |  0.416 | 2.68 | |
+
 
 [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib/complexity)
 
