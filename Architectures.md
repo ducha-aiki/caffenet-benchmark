@@ -43,7 +43,7 @@ Others
 | googlenet_loss1_clf| 0.520 | 2.06 | from net above, aux classifier after inception_4a |
 | GoogLeNet128_BN_after | 0.596 | 1.70 |BN After ReLU|
 | [fitnet1_elu](http://arxiv.org/abs/1412.6550) | 0.333 | 3.21 | |
-
+| [VGGNet16_128](https://arxiv.org/abs/1409.1556.pdf) |  0.651 | 1.46 |Surprisingly much better that GoogLeNet128, even later is with step-based solver. | 
 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/architectures), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/architectures)
