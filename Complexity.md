@@ -14,8 +14,9 @@ Default augmentation: random crop 128x128 from 144xN image, 50% random horizonta
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| 4x wider | **0.563** | **1.92** | Still no overfitting %) | 
-| 2sqrt(2)x wider|  | | In progress |
+| 4sqrt(2)x wider| **0.565** | 1.96 | Start overfitting |
+| 4x wider | 0.563 | **1.92** | Still no overfitting %) | 
+| 2sqrt(2)x wider| 0.552 | 1.94 |  |
 | 2x wider| 0.533 | 2.04 | |
 | sqrt(2)x wider | 0.506 | 2.17 | |
 | Default | 0.471 | 2.36 | |
