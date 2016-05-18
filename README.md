@@ -80,7 +80,7 @@ On-going evaluations with graphs:
 | MaxPool 3x3/2 pad1 | **0.488** | **2.25** |Leads to even larger feature map, Pool5=5x5 instead of  3x3 |
 
 
-[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pooling), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pool), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
 
 ### CLF architecture
 
