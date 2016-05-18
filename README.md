@@ -80,7 +80,7 @@ On-going evaluations with graphs:
 | MaxPool 3x3/2 pad1 | **0.488** | **2.25** |Leads to even larger feature map, Pool5=5x5 instead of  3x3 |
 
 
-[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pooling), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
+[Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/pool), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/pooling)
 
 ### CLF architecture
 
@@ -426,7 +426,7 @@ There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
 | 2 wider| 0.533 | 2.04 | |
 | sqrt(2) wider | 0.506 | 2.17 | |
 | Default | 0.471 | 2.36 | |
-| sqrt(2) narrower | 0.460 | 2.41 | |
+| sqrt(2)x narrower | 0.460 | 2.41 | |
 | 2x narrower |  0.416 | 2.68 | |
 | 4x narrower |  0.256 | 3.33 | |
 
