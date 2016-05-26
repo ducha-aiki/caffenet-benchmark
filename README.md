@@ -42,7 +42,8 @@ On-going evaluations with graphs:
 | [Maxout](http://arxiv.org/abs/1302.4389) | *0.517* | *2.12* | same width layers, 2 pieces|
 | [PReLU](http://arxiv.org/abs/1502.01852) |0.485| 2.29 | |
 | [ELU](http://arxiv.org/abs/1511.07289) |0.488| 2.28| alpha=1, as in paper |
-| [ELU](http://arxiv.org/abs/1511.07289) |0.462| 2.42| alpha=0.5|
+| [ELU](http://arxiv.org/abs/1511.07289) |0.485| 2.29| alpha=0.5|
+| (ELU+LReLU) / 2 |0.486| 2.28| alpha=1, slope=0.05|
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
 | No |0.389 | 2.93 | No non-linearity |
 | [APL](http://arxiv.org/abs/1412.6830)2 |0.471 | 2.38 | 2 linear pieces. Unlike other activations, [current author`s implementation](https://github.com/forestagostinelli/Learned-Activation-Functions-Source/issues/4) leads to different parameters for each x,y position of neuron |
