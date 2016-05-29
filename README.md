@@ -65,7 +65,7 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool |0.471| 2.36 | 290K iters stopped|
+| MaxPool |0.471| 2.36 | |
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
 | Stochastic, no dropout |0.429| 2.96| Stoch pool does not prevent overfitting without dropout :(. Good start,bad finish|
 | AvgPool |0.435| 2.56 | |
