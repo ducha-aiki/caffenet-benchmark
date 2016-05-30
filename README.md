@@ -259,7 +259,8 @@ Others
 | googlenet_loss2_clf| 0.571 | 1.80 | from net above, aux classifier after inception_4d |
 | googlenet_loss1_clf| 0.520 | 2.06 | from net above, aux classifier after inception_4a |
 | [fitnet1_elu](http://arxiv.org/abs/1412.6550) | 0.333 | 3.21 | |
-| [VGGNet16_128](https://arxiv.org/abs/1409.1556.pdf) |  **0.651** | **1.46** |Surprisingly much better that GoogLeNet128, even later is with step-based solver. |
+| [VGGNet16_128](https://arxiv.org/abs/1409.1556.pdf) | 0.651 | **1.46** |Surprisingly much better that GoogLeNet128, even with step-based solver. |
+| VGGNet16_128_All |  **0.682** | 1.47 | ELU (a=0.5. a=1 leads to divergence :( ), avg+max pool, color conversion, linear lr_policy |        
 
 
 ResNet attempts are moved to [ResNets.md](ResNets.md)

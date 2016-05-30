@@ -38,13 +38,13 @@ Others
 | [DarkNetBN](http://pjreddie.com/darknet/imagenet/#reference) |0.502| 2.25 | 16C3->MP2->32C3->MP2->64C3->MP2->128C3->MP2->256C3->MP2->512C3->MP2->1024C3->1000CLF.BN|
 | [HeNet2x2](http://arxiv.org/abs/1412.1710) |0.561 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper |
 | [HeNet3x1](http://arxiv.org/abs/1412.1710) |0.560 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper, 2x2->3x1 |
-| [GoogLeNet128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** |linear lr_policy, batch_size=256. obviously slower than caffenet |
+| [GoogLeNet128](http://arxiv.org/abs/1409.4842) | 0.619 | 1.61 |linear lr_policy, batch_size=256. obviously slower than caffenet |
 | googlenet_loss2_clf| 0.571 | 1.80 | from net above, aux classifier after inception_4d |
 | googlenet_loss1_clf| 0.520 | 2.06 | from net above, aux classifier after inception_4a |
 | GoogLeNet128_BN_after | 0.596 | 1.70 |BN After ReLU|
 | [fitnet1_elu](http://arxiv.org/abs/1412.6550) | 0.333 | 3.21 | |
 | [VGGNet16_128](https://arxiv.org/abs/1409.1556.pdf) |  0.651 | 1.46 |Surprisingly much better that GoogLeNet128, even later is with step-based solver. | 
-
+| VGGNet16_128_All |  **0.682** | **1.47** | ELU (a=0.5. a=1 leads to divergence :( ), avg+max pool, color conversion, linear lr_policy | 
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/architectures), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/architectures)
 
