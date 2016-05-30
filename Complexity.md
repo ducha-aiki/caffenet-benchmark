@@ -22,6 +22,8 @@ Default augmentation: random crop 128x128 from 144xN image, 50% random horizonta
 | Default | 0.471 | 2.36 | |
 | sqrt(2)x narrower | 0.460 | 2.41 | |
 | 2x narrower |  0.416 | 2.68 | |
+| 2sqrt(2)x narrower |  0.340 | 3.11 |no group conv |
+| 2sqrt(2)x narrower |  0.318 | 3.25 | |
 | 4x narrower |  0.256 | 3.33 | |
 
 

@@ -41,7 +41,9 @@ On-going evaluations with graphs:
 | [Maxout](http://arxiv.org/abs/1302.4389) |0.482| 2.30| sqrt(2) narrower layers, 2 pieces. Same complexity, as for ReLU|
 | [Maxout](http://arxiv.org/abs/1302.4389) | *0.517* | *2.12* | same width layers, 2 pieces|
 | [PReLU](http://arxiv.org/abs/1502.01852) |0.485| 2.29 | |
-| [ELU](http://arxiv.org/abs/1511.07289) |0.488| 2.28| |
+| [ELU](http://arxiv.org/abs/1511.07289) |0.488| 2.28| alpha=1, as in paper |
+| [ELU](http://arxiv.org/abs/1511.07289) |0.485| 2.29| alpha=0.5|
+| (ELU+LReLU) / 2 |0.486| 2.28| alpha=1, slope=0.05|
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
 | No |0.389 | 2.93 | No non-linearity |
 | [APL](http://arxiv.org/abs/1412.6830)2 |0.471 | 2.38 | 2 linear pieces. Unlike other activations, [current author`s implementation](https://github.com/forestagostinelli/Learned-Activation-Functions-Source/issues/4) leads to different parameters for each x,y position of neuron |
@@ -63,7 +65,7 @@ On-going evaluations with graphs:
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| MaxPool |0.471| 2.36 | 290K iters stopped|
+| MaxPool |0.471| 2.36 | |
 | [Stochastic](http://arxiv.org/abs/1301.3557) |0.438| 2.54| Underfitting, may be try without Dropout|
 | Stochastic, no dropout |0.429| 2.96| Stoch pool does not prevent overfitting without dropout :(. Good start,bad finish|
 | AvgPool |0.435| 2.56 | |
@@ -429,6 +431,8 @@ There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
 | Default | 0.471 | 2.36 | |
 | sqrt(2)x narrower | 0.460 | 2.41 | |
 | 2x narrower |  0.416 | 2.68 | |
+| 2sqrt(2)x narrower |  0.340 | 3.11 |no group conv |
+| 2sqrt(2)x narrower |  0.318 | 3.25 | |
 | 4x narrower |  0.256 | 3.33 | |
 
 [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib/complexity)
