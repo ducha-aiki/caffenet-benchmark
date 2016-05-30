@@ -430,6 +430,8 @@ There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
 | Default | 0.471 | 2.36 | |
 | sqrt(2)x narrower | 0.460 | 2.41 | |
 | 2x narrower |  0.416 | 2.68 | |
+| 2sqrt(2)x narrower |  0.340 | 3.11 |no group conv |
+| 2sqrt(2)x narrower |  0.318 | 3.25 | |
 | 4x narrower |  0.256 | 3.33 | |
 
 [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib/complexity)
