@@ -463,6 +463,17 @@ Or why input var=1 for LSUV is so important
 
 [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib)
 
+
+### Dataset quality
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Default, clean labels | **0.471** | **2.36** | |
+| 5% incorrect labels |0.458| 2.45 | |
+| 10% incorrect labels | 0.447| 2.58 | |
+
+[logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib) 
+
 ### Other
 
 ReLU non-linearity, fc6 and fc7 layer only
