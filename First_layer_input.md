@@ -25,6 +25,11 @@ All the variants have similar computational complexity, if other not explicit sa
 
 [prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/conv1-input), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/conv1-input)
 
+### Input image size
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| ------:|:-----------|
+
 
 ![CaffeNet128 test accuracy](/logs/conv1-input/img/0.png)
 
