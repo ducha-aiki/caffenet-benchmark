@@ -86,19 +86,26 @@ On-going evaluations with graphs:
 
 ### CLF architecture
 
-pool5pad *Nets mistakenly were trained with ELU non-linearity instead of default ReLU
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| -------:|:-----------|
+| Default ReLU|0.470| 2.36 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
+| Conv5-fc6=2048C3_2048C1_clf_avg |0.494| 2.34 | no pool5 -> fc6 = conv 3x3x2048 -> fc7=conv 1x1x2048 -> fc8 as 1x1 conv -> ave_pool.  |
+| SPP2-FC-FC|0.471| 2.36 | pool5 = SPP with 2 levels (2x2 and 1x1) -> FC6 -> FC7 |
+| SPP3-FC-FC|0.483| 2.30 | pool5 = SPP with 3 levels (3x3 and 2x2 and 1x1) -> FC6 -> FC7 |
+| fc6=512C3_1024C3_1536C1 |0.482| 2.52 | pool5 zero pad -> fc6 = conv 3x3x512 -> fc7=conv 3x3x1024 -> 1x1x1536 ->  fc8 as 1x1 conv -> ave_pool.  |
+| fc6=512C3_1024C3_1536C1_drop |0.491| 2.29 | pool5 zero pad -> fc6 = conv 3x3x512 -> fc7=conv 3x3x1024 -> drop 0.3 -> 1x1x1536 -> drop 0.5-> fc8 as 1x1 conv -> ave_pool.  | 
+Default ReLU, 4096| **0.497** | **2.24** | fc6 = conv 3x3x4096 -> fc7 4096 -> 1000 fc8 == original caffenet|
+
+
+pool5pad following nets mistakenly were trained with ELU non-linearity instead of default ReLU
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | Default ELU|0.488| 2.28 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
 | pool5pad_fc6ave |0.481| 2.32 | pool5 zero pad -> fc6 = conv 3x3x2048 -> AvePool -> as usual |
-| pool5pad_fc6ave_fc7as1x1fc8ave | 0.508 | 2.22 |  pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> ave_pool -> fc8 as 1x1 conv.  |
-| pool5pad_fc6ave_fc7as1x1avefc8 | **0.511** | 2.21 |pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool.  |
+| pool5pad_fc6ave_fc7as1x1fc8ave | **0.511** | 2.21 | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool.  |
+| pool5pad_fc6ave_fc7as1x1avefc8 | 0.508 | 2.22 | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> ave_pool  -> fc8  |
 | pool5pad_fc6ave_fc7as1x1_avemax_fc8 | 0.509 | **2.19** | pool5 zero pad -> fc6 = conv 3x3x2048 ->  fc7 as 1x1 conv -> fc8 as 1x1 conv -> ave_pool + max_pool. |
-| Default ReLU|0.471| 2.36 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
-| fc6-7 4096|0.497| 2.24 | fc6 = conv 3x3x4096 -> fc7 4096 -> 1000 fc8 == original caffenet|
-| fc6=512C3_1024C3_1536C1 |0.482| 2.52 | pool5 zero pad -> fc6 = conv 3x3x512 -> fc7=conv 3x3x1024 -> 1x1x1536 ->  fc8 as 1x1 conv -> ave_pool.  |
-| fc6=512C3_1024C3_1536C1_drop |0.491| 2.29 | pool5 zero pad -> fc6 = conv 3x3x512 -> fc7=conv 3x3x1024 -> drop 0.3 -> 1x1x1536 -> drop 0.5-> fc8 as 1x1 conv -> ave_pool.  |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/clf_arch), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/clf_arch)
 
@@ -462,6 +469,19 @@ Or why input var=1 for LSUV is so important
 | 200K images, no scale |0.277| 4.06 | |
 
 [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib)
+
+
+### Input image size
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| ------:|:-----------|
+| 96x96| 0.414 | 2.69 |  |
+| 128x128| 0.471 | 2.36 |  |
+| 180x180| 0.521 | 2.10 |  |
+| 224x224| 0.565 | 1.87 |  |
+| 300x300| 0.559|  2.03 |  In progress, results for 115K |
+
+[logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/img-size)
 
 
 ### Dataset quality
