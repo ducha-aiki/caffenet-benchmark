@@ -4,7 +4,7 @@ The basic architecture is similar to CaffeNet, but has several differences:
 
 1. Images are resized to small side = 128 for speed reasons. Therefore pool5 spatial size is 3x3 instead of 6x6.
 2. fc6 and fc7 layers have 2048 neurons instead of 4096. 
-3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422)
+3. Networks are initialized with [LSUV-init](http://arxiv.org/abs/1511.06422) ([code](https://github.com/ducha-aiki/LSUVinit))
 4. Because LRN layers add nothing to accuracy (validated [here](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)), they were removed for speed reasons in most experiments.
 
 Taking into account [Neural Network Training Variations in Speech and Subsequent Performance Evaluation](http://beta.openreview.net/forum?id=OM0jKROjrFp57ZJjtNkv), results can vary from run to run (data order is the same, but random seeds are different). However, I haven`t experienced results difference for several CaffeNet-ReLU training runs.
