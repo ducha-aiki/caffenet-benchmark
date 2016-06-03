@@ -90,6 +90,7 @@ On-going evaluations with graphs:
 | -------|---------:| -------:|:-----------|
 | Default ReLU|0.470| 2.36 | fc6 = conv 3x3x2048 -> fc7 2048 -> 1000 fc8 |
 | Conv5-fc6=2048C3_2048C1_clf_avg |0.494| 2.34 | no pool5 -> fc6 = conv 3x3x2048 -> fc7=conv 1x1x2048 -> fc8 as 1x1 conv -> ave_pool.  |
+| Pool5-fc6=2048C3_2048C1_avg_clf |0.489| 2.28 | no pool5 -> fc6 = conv 3x3x2048 -> fc7=conv 1x1x2048  -> ave_pool -> fc8  |
 | SPP2-FC-FC|0.471| 2.36 | pool5 = SPP with 2 levels (2x2 and 1x1) -> FC6 -> FC7 |
 | SPP3-FC-FC|0.483| 2.30 | pool5 = SPP with 3 levels (3x3 and 2x2 and 1x1) -> FC6 -> FC7 |
 | fc6=512C3_1024C3_1536C1 |0.482| 2.52 | pool5 zero pad -> fc6 = conv 3x3x512 -> fc7=conv 3x3x1024 -> 1x1x1536 ->  fc8 as 1x1 conv -> ave_pool.  |
