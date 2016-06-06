@@ -248,6 +248,7 @@ CaffeNet only
 | CaffeNet128All | **0.530** | **2.05** | All improvements without caffenet arch change: ELU + SPP + color_trans3-10-3 + Nesterov+ (AVE+MAX) Pool + linear lr_policy|
 |  | + 0.06 |  | Gain over vanilla caffenet128. "Sum of gains" = 0.018 + 0.013 + 0.015 + 0.003 + 0.013 + 0.023 = 0.085 |
 | [SqueezeNet128](https://github.com/DeepScale/SqueezeNet) | **0.530** | 2.08 | Reference solver, but linear lr_policy and batch_size=256 (320K iters). WITHOUT tricks like ELU, SPP, AVE+MAX, etc.|
+| [SqueezeNet128](https://github.com/DeepScale/SqueezeNet) | **0.547** | 2.08 | New SqueezeNet solver. WITHOUT tricks like ELU, SPP, AVE+MAX, etc.|
 | SqueezeNet128+ELU | **0.555** | **1.95** | Reference solver, but linear lr_policy and batch_size=256 (320K iters).ELU|
 | CaffeNet256All | 0.613 | 1.64 | All improvements without caffenet arch change: ELU + SPP + color_trans3-10-3 + Nesterov+ (AVE+MAX) Pool + linear lr_policy|
 | CaffeNet128, no pad |0.411 | 2.70 | No padding, but conv1 stride=2 instead of 4 to keep size of pool5 the same|
