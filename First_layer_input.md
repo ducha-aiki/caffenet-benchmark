@@ -29,6 +29,7 @@ All the variants have similar computational complexity, if other not explicit sa
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| ------:|:-----------|
+| 64x64| 0.309 | 3.34 |  |
 | 96x96| 0.414 | 2.69 |  |
 | 128x128| 0.471 | 2.36 |  |
 | 180x180| 0.521 | 2.10 |  |
