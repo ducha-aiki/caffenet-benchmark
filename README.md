@@ -5,7 +5,7 @@ Welcome to evaluation of CNN design choises performance on ImageNet-2012. Here y
 If you use results from this benchmark, please cite 
 
     @ARTICLE{CaffenetBench2016,
-    author = {{Mishkin}, D. and {Sergievskiy}, N {Matas}, J.},
+    author = {{Mishkin}, D. and {Sergievskiy}, N. and {Matas}, J.},
     title = "{Systematic evaluation of CNN advances on the ImageNet}",
     journal = {ArXiv e-prints},
     archivePrefix = "arXiv",
