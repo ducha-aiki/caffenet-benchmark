@@ -18,7 +18,8 @@ Default augmentation: random crop 128x128 from 144xN image, 50% random horizonta
 | Default, clean labels | **0.471** | **2.36** | |
 | 5% incorrect labels |0.458| 2.45 | |
 | 10% incorrect labels | 0.447| 2.58 | |
-
+| 15% incorrect labels | 0.437| 2.69 | |
+| 50% incorrect labels | 0.347| 3.44 | |
 
 
 [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib)
