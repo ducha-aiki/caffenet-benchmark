@@ -282,6 +282,7 @@ Others
 | [HeNet3x1](http://arxiv.org/abs/1412.1710) |0.560 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper, 2x2->3x1 |
 | [GoogLeNet128](http://arxiv.org/abs/1409.4842) | 0.619 | 1.61 |linear lr_policy, batch_size=256. obviously slower than caffenet |
 | GoogLeNet128Res | 0.634 | 1.56 |linear lr_policy, batch_size=256. Resudial connections between inception block. No BN |
+| GoogLeNet128Res_color | 0.638 | 1.52 |linear lr_policy, batch_size=256. Resudial connections between inception block. No BN.  + color_trans3-10-3 |
 | googlenet_loss2_clf| 0.571 | 1.80 | from net above, aux classifier after inception_4d |
 | googlenet_loss1_clf| 0.520 | 2.06 | from net above, aux classifier after inception_4a |
 | [fitnet1_elu](http://arxiv.org/abs/1412.6550) | 0.333 | 3.21 | |
