@@ -13,6 +13,7 @@ If you use results from this benchmark, please cite
      year = 2016,
     month = jun
     }
+**upd2.: Some of the pretrained models are in [Releases](https://github.com/ducha-aiki/caffenet-benchmark/releases) section. They are licensed for unrestricted use.
 
 The basic architecture is similar to CaffeNet, but has several differences:
 
