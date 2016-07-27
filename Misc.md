@@ -13,7 +13,9 @@ ReLU non-linearity, fc6 and fc7 layer only
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-|  Default |0.471| 2.36 | 290K iters stopped|
+|  Default |0.471| 2.36 | bias lr_rate = 2x weights lr_rate|
+|  1x |0.470| 2.37 | bias lr_rate = 1x weights lr_rate|
+|  5x | **0.472** | **2.35** | bias lr_rate = 5x weights lr_rate|
 |  NoBias |0.445| 2.50 | Biases initialized with zeros, lr_rate = 0|
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/other), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/other)
