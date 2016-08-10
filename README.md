@@ -282,6 +282,7 @@ Others
 | [HeNet2x2](http://arxiv.org/abs/1412.1710) |0.561 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper |
 | [HeNet3x1](http://arxiv.org/abs/1412.1710) |0.560 | 1.88|No SPP, Pool5 = 3x3, VLReLU, J' from paper, 2x2->3x1 |
 | [GoogLeNet128](http://arxiv.org/abs/1409.4842) | 0.619 | 1.61 |linear lr_policy, batch_size=256. obviously slower than caffenet |
+| [GoogLeNet128_BN_lim0606][https://github.com/lim0606/caffe-googlenet-bn] | **0.645** | **1.54** |BN before ReLU + scale bias, linear LR, batch_size = 128, base_lr = 0.005, 640K iter, LSUV init |
 | GoogLeNet128Res | 0.634 | 1.56 |linear lr_policy, batch_size=256. Resudial connections between inception block. No BN |
 | GoogLeNet128Res_color | 0.638 | 1.52 |linear lr_policy, batch_size=256. Resudial connections between inception block. No BN.  + color_trans3-10-3 |
 | googlenet_loss2_clf| 0.571 | 1.80 | from net above, aux classifier after inception_4d |
@@ -389,12 +390,12 @@ ReLU non-linearity, fc6 and fc7 layer only
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-| [GoogLeNet128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** ||
+| [GoogLeNet128](http://arxiv.org/abs/1409.4842) | 0.619 | 1.61 ||
 | GoogLeNet BN Before + scale&bias layer LSUV| 0.603 | 1.68  | |
 | GoogLeNet BN Before + scale&bias layer Ortho| 0.607| 1.67 | |
 | GoogLeNet BN After LSUV |0.596| 1.70 | |
 | GoogLeNet BN After Ortho |0.584 | 1.77  | |
-
+| [GoogLeNet128_BN_lim0606][https://github.com/lim0606/caffe-googlenet-bn] | **0.645** | **1.54** |BN before ReLU + scale bias, linear LR, batch_size = 128, base_lr = 0.005, 640K iter, LSUV init |
     
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/bn_init), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/bn_init)
 
