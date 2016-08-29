@@ -60,7 +60,8 @@ On-going evaluations with graphs:
 | [ELU](http://arxiv.org/abs/1511.07289) |0.485| 2.29| alpha=0.5|
 | (ELU+LReLU) / 2 |0.486| 2.28| alpha=1, slope=0.05|
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
-| No |0.389 | 2.93 | No non-linearity |
+| No, with max pooling |0.389 | 2.93 | No non-linearity |
+| No, no max pooling |0.035 | 6.28 | No non-linearity, strided convolution |
 | [APL](http://arxiv.org/abs/1412.6830)2 |0.471 | 2.38 | 2 linear pieces. Unlike other activations, [current author`s implementation](https://github.com/forestagostinelli/Learned-Activation-Functions-Source/issues/4) leads to different parameters for each x,y position of neuron |
 | [APL](http://arxiv.org/abs/1412.6830)5 |0.465 | 2.39 | 5 linear pieces. Unlike other activations, [current author`s implementation](https://github.com/forestagostinelli/Learned-Activation-Functions-Source/issues/4) leads to different parameters for each x,y position of neuron |
 | ConvReLU,FCMaxout2 | 0.490 | 2.26 | ReLU in convolution, Maxout (sqrt(2) narrower) 2 pieces in FC. Inspired by kaggle and [INVESTIGATION OF MAXOUT NETWORKS FOR SPEECH RECOGNITION](http://www.cstr.ed.ac.uk/downloads/publications/2014/Swietojanski_ICASSP14.pdf)*  |
