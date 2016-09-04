@@ -72,7 +72,7 @@ ReLU non-linearity, fc6 and fc7 layer only
 | GoogLeNet BN Before + scale&bias layer Ortho| 0.607| 1.67 | |
 | GoogLeNet BN After LSUV |0.596| 1.70 | |
 | GoogLeNet BN After Ortho |0.584 | 1.77  | |
-| [GoogLeNet128_BN_lim0606][https://github.com/lim0606/caffe-googlenet-bn] | **0.645** | **1.54** |BN before ReLU + scale bias, linear LR, batch_size = 128, base_lr = 0.005, 640K iter, LSUV init |
+| [GoogLeNet128_BN_lim0606][https://github.com/lim0606/caffe-googlenet-bn] | **0.645** | **1.54** |BN before ReLU + scale bias, linear LR, batch_size = 128, base_lr = 0.005, 640K iter, LSUV init. 5x5 replaced with 3x3 + 3x3. 3x3 replaced with 3x1+1x3 |
 
 
 ![CaffeNet128 test accuracy](/logs/bn_init/img/0caffe.png)
