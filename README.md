@@ -455,10 +455,6 @@ There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
 |  VGG-LikeRes | **0.576** | **1.83** | with residual connections, no BN |
 |  VGG-LikeResDrop | 0.568 | 1.91 | with residual connections, no BN , dropout in conv |
 
-![CaffeNet128 test accuracy](/logs/architectures/vgglike/img/0.png)
-![CaffeNet128 test loss](/logs/architectures/vgglike/2.png)
-![CaffeNet128 train loss](/logs/architectures/vgglike/img/6.png)
-
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/contrib/vgglike), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/architectures/vgglike)
 
