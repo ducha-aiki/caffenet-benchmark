@@ -27,7 +27,7 @@ The architecture is similar to CaffeNet, but has differences:
 | NN-Scale |0.467| 2.38 | Nearest neightbor instead of linear interpolation for rescale. Faster, but worse :(|
 | concat_rgb_each_pool |0.441| 2.51 | Concat avepoolRGB with each pool |
 | OpenCV RGB2Gray |0.413| 2.70 |RGB->Grayscale Gray = 0.299 R + 0.587 G + 0.114 B |
-| Learned RGB2Gray |0.419| 2.66 |RGB->conv1x1x1  |
+| Learned RGB2Gray |0.419| 2.66 |RGB->conv1x1x1. -1.779 *R + 6.511 * G + 1.493 *B + 3.279  |
 
 [Prototxt](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/prototxt/colorspace), [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/colorspace)
 
