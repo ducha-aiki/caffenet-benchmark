@@ -451,7 +451,7 @@ There difference in filters (main, 5x5 -> 3x3 + 3x3 or 1x5+5x1) and solver.
 
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
-|  VGG-Like | 0.521 | 2.14 |  |
+|  VGG-Like | 0.521 | 2.14 | 1st layer = 7x7 stride 2, unlike VGG. All other layer = 1/2 VGG width |
 |  VGG-LikeRes | **0.576** | **1.83** | with residual connections, no BN |
 |  VGG-LikeResDrop | 0.568 | 1.91 | with residual connections, no BN , dropout in conv |
 
