@@ -19,7 +19,8 @@ The architecture is similar to CaffeNet, but has differences:
 | HSV |0.451| 2.46 |RGB->HSV->BatchNorm(HSV)  |
 | Lab |-| - | Doesn`t leave 6.90 loss after 1.5K iters |
 | RGB->10->3 TanH | 0.463| 2.40 | RGB -> conv1x1x10 tanh  ->  conv1x1x3 tanh |
-| RGB->10->3 VlReLU | **0.485** | **2.28** | RGB -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
+| RGB->10->3 VlReLU | 0.485 | 2.28 | RGB -> conv1x1x10 vlrelu  ->  conv1x1x3 vlrelu|
+| RGB->10->3 Maxout | **0.488** | **2.26** | RGB -> conv1x1x10 maxout(2)  ->  conv1x1x3 maxout(2)|
 | RGB->16->3 VlReLU | 0.483 | 2.30 | RGB -> conv1x1x16 vlrelu  ->  conv1x1x3 vlrelu|
 | RGB->3->3 VlReLU | 0.480 | 2.32 | RGB -> conv1x1x3 vlrelu  ->  conv1x1x3 vlrelu|
 | RGB->10->3 VlReLU->sum(RGB) | 0.482 | 2.30 | RGB -> conv1x1x10 vlrelu  ->  conv1x1x3 -> sum(RGB) ->vlrelu|
