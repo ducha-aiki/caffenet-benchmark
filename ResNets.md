@@ -27,7 +27,12 @@ Except GoogLeNet
 | Name    | Accuracy      | LogLoss | Comments  |
 | -------|---------:| -------:|:-----------|
 | [ResNet-50ELU-2xThinner](http://arxiv.org/abs/1512.03385) | 0.616| 1.63| Without BN, ELU, dropout=0.2 before classifier. 2x thinner, than in paper. Quite fast. No large overfitting (unlike upper table) |
-| [GoogLeNet-128](http://arxiv.org/abs/1409.4842) | **0.619** | **1.61** | For reference. linear lr_policy, batch_size=256. |
+| GoogLeNet128Res | **0.634** | **1.56** |linear lr_policy, batch_size=256. Resudial connections between inception block. No BN |
+| [GoogLeNet-128](http://arxiv.org/abs/1409.4842) | 0.619 | 1.61 | For reference. linear lr_policy, batch_size=256. |
+| VggLikeResNet-50-ELU-RoR-var | 0.626| 1.59| Step LR policy, max_iter = 200K, no BN, 4x thinner than VGG, [Residual on residual](https://arxiv.org/abs/1608.02908)  .|
+| VggLikeResNet-50-ELU | 0.632| 1.57| Step LR policy, max_iter = 200K, no BN, 4x thinner than VGG. More RoR .|
+| VggLikeResNet-50-ELU-RoR 1x5 | 0.628| 1.58| Step LR policy, max_iter = 200K, no BN, 4x thinner than VGG. 1x5 layers|
+| VggLikeResNet-50-ELU-RoR 1x3 | 0.631 | 1.58| Step LR policy, max_iter = 200K, no BN, 4x thinner than VGG . |
 
 
 
