@@ -31,6 +31,7 @@ On-going evaluations with graphs:
 - [lr_policy](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Lr_policy.md)
 - [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
 - [First layer parameters] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/First_layer_input.md)
+- [Conv1 depth](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Conv1_depth.md)
 - [classfier architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Clf_arch.md)
 - [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
 - [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
@@ -535,6 +536,23 @@ Or why input var=1 for LSUV is so important
 | 50% incorrect labels | 0.347| 3.44 | |
 
 [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/contrib) 
+
+### Conv1 depth
+
+| Name    | Accuracy      | LogLoss | Comments  |
+| -------|---------:| ------:|:-----------|
+| Default, no 1x1 or 3x3 |  0.471 | 2.36 | conv1 -> pool1 |
+| + 1x1x96 NiN |  0.490 | 2.24 | conv1 -> 96C1 -> pool1 |
+| + 3x (1x1x96 NiN) |  0.509 | 2.10 | conv1 -> 3x(96C1) -> pool1 |
+| + 5x (1x1x96 NiN) |  0.514 | 2.11 | conv1 -> 5x(96C1) -> pool1 |
+| + 7x (1x1x96 NiN) |  0.514 | 2.11 | conv1 -> 7x(96C1) -> pool1 |
+| + 9x (1x1x96 NiN) |  0.516 | 2.10 | conv1 -> 9x(96C1) -> pool1 |
+| + 9x (1x1x96 NiN)R |  0.509 | 2.13 | conv1 -> Residual9x(96C1) -> pool1. 276k iters |
+| + 1x (3x3x96 NiN) |  0.500 | 2.19 | conv1 -> 1x(96C3) -> pool1 |
+| + 3x (3x3x96 NiN) |  0.538 | 1.99 | conv1 -> 1x(96C3) -> pool1 |
+| + 5x (3x3x96 NiN) |  **0.551** | **1.91** | conv1 -> 1x(96C3) -> pool1 |
+
+ [logs](https://github.com/ducha-aiki/caffenet-benchmark/tree/master/logs/conv1_depth)
 
 ### Other
 
