@@ -1,4 +1,4 @@
-Welcome to evaluation of CNN design choises performance on ImageNet-2012. Here you can find prototxt`s of tested nets and full train logs.
+Welcome to evaluation of CNN design choises performance on ImageNet-2012. Here you can find prototxt's of tested nets and full train logs.
 
 **upd.: [Here](http://arxiv.org/abs/1606.02228) is technical report version of this benchmark**
 
@@ -14,6 +14,8 @@ If you use results from this benchmark, please cite
     month = jun
     }
 **upd2.: Some of the pretrained models are in [Releases](https://github.com/ducha-aiki/caffenet-benchmark/releases) section. They are licensed for unrestricted use.
+
+***upd3.: Nice paper on noise sensitiveness: [Fine-grained Recognition in the Noisy Wild: Sensitivity Analysis of Convolutional Neural Networks Approaches](https://arxiv.org/pdf/1610.06756v1.pdf)
 
 The basic architecture is similar to CaffeNet, but has several differences:
 
