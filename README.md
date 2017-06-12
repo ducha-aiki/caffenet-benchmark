@@ -4,15 +4,17 @@ Welcome to evaluation of CNN design choises performance on ImageNet-2012. Here y
 
 If you use results from this benchmark, please cite 
 
-    @ARTICLE{CaffenetBench2016,
-    author = {{Mishkin}, D. and {Sergievskiy}, N. and {Matas}, J.},
-    title = "{Systematic evaluation of CNN advances on the ImageNet}",
-    journal = {ArXiv e-prints},
-    archivePrefix = "arXiv",
-    eprint = {1606.02228},
-     year = 2016,
-    month = jun
+    @Article{CaffeNetBench2017,
+      Title                    = {Systematic evaluation of convolution neural network advances on the Imagenet },
+      Author                   = {Dmytro Mishkin and Nikolay Sergievskiy and Jiri Matas},
+      Journal                  = {Computer Vision and Image Understanding },
+      Year                     = {2017},
+      Doi                      = {https://doi.org/10.1016/j.cviu.2017.05.007},
+      ISSN                     = {1077-3142},
+      Keywords                 = {CNN},
+      Url                      = {http://www.sciencedirect.com/science/article/pii/S1077314217300814}
     }
+
 **upd2.: Some of the pretrained models are in [Releases](https://github.com/ducha-aiki/caffenet-benchmark/releases) section. They are licensed for unrestricted use.
 
 ***upd3.: Nice paper on noise sensitiveness: [Fine-grained Recognition in the Noisy Wild: Sensitivity Analysis of Convolutional Neural Networks Approaches](https://arxiv.org/pdf/1610.06756v1.pdf)
