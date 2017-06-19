@@ -33,19 +33,19 @@ On-going evaluations with graphs:
 - [pooling](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Pooling.md)
 - [solvers](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Solvers.md)
 - [lr_policy](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Lr_policy.md)
-- [architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
-- [First layer parameters] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/First_layer_input.md)
+- [architectures](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Architectures.md)
+- [First layer parameters](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/First_layer_input.md)
 - [Conv1 depth](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Conv1_depth.md)
-- [classfier architectures] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Clf_arch.md)
-- [augmentation] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
-- [batchnorm] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
-- [colorspace] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Colorspace.md)
-- [regularization] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Regularization.md)
-- [resnets, not yet successfull] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/ResNets.md)
-- [batch size] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/BatchSize.md)
-- [dataset size] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Dataset_size.md)
-- [Network width] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Complexity.md)
-- [other mix] (https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Misc.md)
+- [classfier architectures](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Clf_arch.md)
+- [augmentation](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Augmentation.md)
+- [batchnorm](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/batchnorm.md)
+- [colorspace](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Colorspace.md)
+- [regularization](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Regularization.md)
+- [resnets, not yet successfull](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/ResNets.md)
+- [batch size](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/BatchSize.md)
+- [dataset size](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Dataset_size.md)
+- [Network width](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Complexity.md)
+- [other mix](https://github.com/ducha-aiki/caffenet-benchmark/blob/master/Misc.md)
 
 
 ### Activations
@@ -64,6 +64,7 @@ On-going evaluations with graphs:
 | [ELU](http://arxiv.org/abs/1511.07289) |0.488| 2.28| alpha=1, as in paper |
 | [ELU](http://arxiv.org/abs/1511.07289) |0.485| 2.29| alpha=0.5|
 | (ELU+LReLU) / 2 |0.486| 2.28| alpha=1, slope=0.05|
+| [SELU = Scaled ELU](https://arxiv.org/abs/1706.02515) | 0.470 | 2.38 | 1.05070 * ELU(x,alpha = 1.6732) |
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
 | No, with max pooling |0.389 | 2.93 | No non-linearity |
 | No, no max pooling |0.035 | 6.28 | No non-linearity, strided convolution |
