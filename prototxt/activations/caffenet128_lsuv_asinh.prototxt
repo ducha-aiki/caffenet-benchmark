@@ -1,0 +1,614 @@
+test_iter: 1000
+test_interval: 5000
+base_lr: 0.01
+clip_gradients: 20
+lr_policy: "step"
+gamma: 0.1
+stepsize: 100000
+display: 20
+max_iter: 320000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 10000
+iter_size: 1
+solver_mode: GPU
+solver_type: SGD
+snapshot_prefix: "snapshots/caffenet128_no_lrn_lsuv_asinh"
+
+net_param { 
+name: "CaffeNet"
+layer {
+  name: "data"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+ transform_param {
+    force_color: true
+    scale: 0.04
+    mirror: true
+    crop_size: 128
+    mean_value: 104
+    mean_value: 117
+    mean_value: 124
+  }
+  data_param {
+    source: "/home/old-ufo/storage/datasets/imagenet_128/imgs128/lmdb/ilsvrc12_128_train_lmdb"
+    backend: LMDB
+    batch_size: 256
+  }
+}
+layer {
+  name: "data"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    force_color: true
+    scale: 0.04
+    mirror: false
+    crop_size: 128
+    mean_value: 104
+    mean_value: 117
+    mean_value: 123
+  }
+  data_param {
+    source: "/home/old-ufo/storage/datasets/imagenet_128/imgs128/lmdb/ilsvrc12_128_val_lmdb"
+    backend: LMDB
+    batch_size: 50
+  }
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 96
+    kernel_size: 11
+    stride: 4
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      
+    }
+  }
+}
+layer {
+  name: "sq1"
+  type: "Power"
+  bottom: "conv1"
+  top: "sq1"
+  power_param {
+    power: 2
+  }
+}
+
+layer {
+  name: "sqrt1"
+  type: "Power"
+  bottom: "sq1"
+  top: "sqrt1"
+  power_param {
+    power: 0.5 shift: 1.0
+  }
+}
+layer {
+  name: "underlog1"
+  type: "Eltwise"
+  top: "underlog1"
+  bottom: "conv1"
+  bottom: "sqrt1"
+  eltwise_param {
+    operation: SUM coeff:1.0 coeff: 1.0
+  }
+}
+layer {
+  name: "shift1"
+  type: "Log"
+  top: "shift1"
+  bottom: "underlog1"
+  log_param {
+     shift: 0.000000001
+  }
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "shift1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "conv2"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 2
+    kernel_size: 5
+    group: 2 
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      
+    }
+  }
+}
+layer {
+  name: "sq2"
+  type: "Power"
+  bottom: "conv2"
+  top: "sq2"
+  power_param {
+    power: 2
+  }
+}
+
+layer {
+  name: "sqrt2"
+  type: "Power"
+  bottom: "sq2"
+  top: "sqrt2"
+  power_param {
+    power: 0.5 shift: 1.0
+  }
+}
+layer {
+  name: "underlog2"
+  type: "Eltwise"
+  top: "underlog2"
+  bottom: "conv2"
+  bottom: "sqrt2"
+  eltwise_param {
+    operation: SUM coeff:1.0 coeff: 1.0
+  }
+}
+layer {
+  name: "shift2"
+  type: "Log"
+  top: "shift2"
+  bottom: "underlog2"
+  log_param {
+     shift: 0.000000001
+  }
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "shift2"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "conv3"
+  type: "Convolution"
+  bottom: "pool2"
+  top: "conv3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 384
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      
+    }
+  }
+}
+layer {
+  name: "sq3"
+  type: "Power"
+  bottom: "conv3"
+  top: "sq3"
+  power_param {
+    power: 2
+  }
+}
+
+layer {
+  name: "sqrt3"
+  type: "Power"
+  bottom: "sq3"
+  top: "sqrt3"
+  power_param {
+    power: 0.5 shift: 1.0
+  }
+}
+layer {
+  name: "underlog3"
+  type: "Eltwise"
+  top: "underlog3"
+  bottom: "conv3"
+  bottom: "sqrt3"
+  eltwise_param {
+    operation: SUM coeff:1.0 coeff: 1.0
+  }
+}
+layer {
+  name: "shift3"
+  type: "Log"
+  top: "shift3"
+  bottom: "underlog3"
+  log_param {
+     shift: 0.000000001
+  }
+}
+layer {
+  name: "conv4"
+  type: "Convolution"
+  bottom: "shift3"
+  top: "conv4"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 384
+    pad: 1
+    kernel_size: 3
+    group: 2   
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      
+    }
+  }
+}
+layer {
+  name: "sq4"
+  type: "Power"
+  bottom: "conv4"
+  top: "sq4"
+  power_param {
+    power: 2
+  }
+}
+
+layer {
+  name: "sqrt4"
+  type: "Power"
+  bottom: "sq4"
+  top: "sqrt4"
+  power_param {
+    power: 0.5 shift: 1.0
+  }
+}
+layer {
+  name: "underlog4"
+  type: "Eltwise"
+  top: "underlog4"
+  bottom: "conv4"
+  bottom: "sqrt4"
+  eltwise_param {
+    operation: SUM coeff:1.0 coeff: 1.0
+  }
+}
+layer {
+  name: "shift4"
+  type: "Log"
+  top: "shift4"
+  bottom: "underlog4"
+  log_param {
+     shift: 0.000000001
+  }
+}
+layer {
+  name: "conv5"
+  type: "Convolution"
+  bottom: "shift4"
+  top: "conv5"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+    group: 2   
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      
+    }
+  }
+}
+layer {
+  name: "sq5"
+  type: "Power"
+  bottom: "conv5"
+  top: "sq5"
+  power_param {
+    power: 2
+  }
+}
+
+layer {
+  name: "sqrt5"
+  type: "Power"
+  bottom: "sq5"
+  top: "sqrt5"
+  power_param {
+    power: 0.5 shift: 1.0
+  }
+}
+layer {
+  name: "underlog5"
+  type: "Eltwise"
+  top: "underlog5"
+  bottom: "conv5"
+  bottom: "sqrt5"
+  eltwise_param {
+    operation: SUM coeff:1.0 coeff: 1.0
+  }
+}
+layer {
+  name: "shift5"
+  type: "Log"
+  top: "shift5"
+  bottom: "underlog5"
+  log_param {
+     shift: 0.000000001
+  }
+}
+layer {
+  name: "pool5"
+  type: "Pooling"
+  bottom: "shift5"
+  top: "pool5"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "fc6"
+  type: "InnerProduct"
+  bottom: "pool5"
+  top: "fc6"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 2048
+    weight_filler {
+      type: "gaussian"
+      std: 0.005
+    }
+    bias_filler {
+      type: "constant"
+      
+    }
+  }
+}
+layer {
+  name: "sq6"
+  type: "Power"
+  bottom: "fc6"
+  top: "sq6"
+  power_param {
+    power: 2
+  }
+}
+
+layer {
+  name: "sqrt6"
+  type: "Power"
+  bottom: "sq6"
+  top: "sqrt6"
+  power_param {
+    power: 0.5 shift: 1.0
+  }
+}
+layer {
+  name: "underlog6"
+  type: "Eltwise"
+  top: "underlog6"
+  bottom: "fc6"
+  bottom: "sqrt6"
+  eltwise_param {
+    operation: SUM coeff:1.0 coeff: 1.0
+  }
+}
+layer {
+  name: "shift6"
+  type: "Log"
+  top: "shift6"
+  bottom: "underlog6"
+  log_param {
+     shift: 0.000000001
+  }
+}
+layer {
+  name: "drop6"
+  type: "Dropout"
+  bottom: "shift6"
+  top: "drop6"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+layer {
+  name: "fc7"
+  type: "InnerProduct"
+  bottom: "drop6"
+  top: "fc7"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 2048
+    weight_filler {
+      type: "gaussian"
+      std: 0.005
+    }
+    bias_filler {
+      type: "constant"
+      
+    }
+  }
+}
+layer {
+  name: "sq7"
+  type: "Power"
+  bottom: "fc7"
+  top: "sq7"
+  power_param {
+    power: 2
+  }
+}
+
+layer {
+  name: "sqrt7"
+  type: "Power"
+  bottom: "sq7"
+  top: "sqrt7"
+  power_param {
+    power: 0.5 shift: 1.0
+  }
+}
+layer {
+  name: "underlog7"
+  type: "Eltwise"
+  top: "underlog7"
+  bottom: "fc7"
+  bottom: "sqrt7"
+  eltwise_param {
+    operation: SUM coeff:1.0 coeff: 1.0
+  }
+}
+layer {
+  name: "shift7"
+  type: "Log"
+  top: "shift7"
+  bottom: "underlog7"
+  log_param {
+     shift: 0.000000001
+  }
+}
+layer {
+  name: "drop7"
+  type: "Dropout"
+  bottom: "shift7"
+  top: "drop7"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+layer {
+  name: "fc8"
+  type: "InnerProduct"
+  bottom: "drop7"
+  top: "fc8"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 1000
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      
+    }
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "fc8"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "fc8"
+  bottom: "label"
+  top: "loss"
+}
+
+}

@@ -56,6 +56,7 @@ On-going evaluations with graphs:
 | ReLU |0.471| 2.36 | No LRN, as in rest |
 | TanH |0.401| 2.78 |  |
 | [1.73TanH(2x/3)](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf) | 0.423 |  2.66 | As recommended in Efficient BackProp, LeCun98  |
+| ArcSinH | 0.417 | 2.71 | |
 | [VLReLU](https://web.stanford.edu/~awni/papers/relu_hybrid_icml2013_final.pdf) |0.469| 2.40|y=max(x,x/3)|
 | [RReLU](http://arxiv.org/abs/1505.00853) |0.478| 2.32| |
 | [Maxout](http://arxiv.org/abs/1302.4389) |0.482| 2.30| sqrt(2) narrower layers, 2 pieces. Same complexity, as for ReLU|
