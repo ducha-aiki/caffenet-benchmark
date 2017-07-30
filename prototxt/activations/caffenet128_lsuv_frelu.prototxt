@@ -1,0 +1,492 @@
+test_iter: 1000
+test_interval: 5000
+base_lr: 0.01
+display: 20
+max_iter: 320000
+lr_policy: "step"
+gamma: 0.1
+momentum: 0.9
+weight_decay: 0.0005
+stepsize: 100000
+snapshot: 10000
+snapshot_prefix: "snapshots/caffenet128_no_lrn_lsuv_selu"
+solver_mode: GPU
+net_param {
+  name: "CaffeNet"
+  layer {
+    name: "data"
+    type: "Data"
+    top: "data"
+    top: "label"
+    include {
+      phase: TRAIN
+    }
+    transform_param {
+      scale: 0.04
+      mirror: true
+      crop_size: 128
+      mean_value: 104
+      mean_value: 117
+      mean_value: 124
+      force_color: true
+    }
+    data_param {
+      source: "/home/old-ufo/storage/datasets/imagenet_128/imgs128/lmdb/ilsvrc12_128_train_lmdb"
+      batch_size: 256
+      backend: LMDB
+    }
+  }
+  layer {
+    name: "data"
+    type: "Data"
+    top: "data"
+    top: "label"
+    include {
+      phase: TEST
+    }
+    transform_param {
+      scale: 0.04
+      mirror: false
+      crop_size: 128
+      mean_value: 104
+      mean_value: 117
+      mean_value: 123
+      force_color: true
+    }
+    data_param {
+      source: "/home/old-ufo/storage/datasets/imagenet_128/imgs128/lmdb/ilsvrc12_128_val_lmdb"
+      batch_size: 50
+      backend: LMDB
+    }
+  }
+  layer {
+    name: "conv1"
+    type: "Convolution"
+    bottom: "data"
+    top: "conv1"
+    param {
+      lr_mult: 1
+      decay_mult: 1
+    }
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    convolution_param {
+      num_output: 96
+      kernel_size: 11
+      stride: 4
+      weight_filler {
+        type: "gaussian"
+        std: 0.01
+      }
+      bias_filler {
+        type: "constant"
+      }
+    }
+  }
+  layer {
+    name: "relu1"
+    type: "ReLU"
+    bottom: "conv1"
+    top: "relu1"
+  }
+  layer {
+    name: "shift1"
+    type: "Bias"
+    bottom: "relu1"
+    top: "shift1"
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    bias_param {
+      filler {
+        type: "constant"
+        value: -0.2
+      }
+    }
+  }
+  layer {
+    name: "pool1"
+    type: "Pooling"
+    bottom: "shift1"
+    top: "pool1"
+    pooling_param {
+      pool: MAX
+      kernel_size: 3
+      stride: 2
+    }
+  }
+  layer {
+    name: "conv2"
+    type: "Convolution"
+    bottom: "pool1"
+    top: "conv2"
+    param {
+      lr_mult: 1
+      decay_mult: 1
+    }
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    convolution_param {
+      num_output: 256
+      pad: 2
+      kernel_size: 5
+      group: 2
+      weight_filler {
+        type: "gaussian"
+        std: 0.01
+      }
+      bias_filler {
+        type: "constant"
+      }
+    }
+  }
+  layer {
+    name: "relu2"
+    type: "ReLU"
+    bottom: "conv2"
+    top: "relu2"
+  }
+  layer {
+    name: "shift2"
+    type: "Bias"
+    bottom: "relu2"
+    top: "shift2"
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    bias_param {
+      filler {
+        type: "constant"
+        value: -0.2
+      }
+    }
+  }
+  layer {
+    name: "pool2"
+    type: "Pooling"
+    bottom: "shift2"
+    top: "pool2"
+    pooling_param {
+      pool: MAX
+      kernel_size: 3
+      stride: 2
+    }
+  }
+  layer {
+    name: "conv3"
+    type: "Convolution"
+    bottom: "pool2"
+    top: "conv3"
+    param {
+      lr_mult: 1
+      decay_mult: 1
+    }
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    convolution_param {
+      num_output: 384
+      pad: 1
+      kernel_size: 3
+      weight_filler {
+        type: "gaussian"
+        std: 0.01
+      }
+      bias_filler {
+        type: "constant"
+      }
+    }
+  }
+  layer {
+    name: "relu3"
+    type: "ReLU"
+    bottom: "conv3"
+    top: "relu3"
+  }
+  layer {
+    name: "shift3"
+    type: "Bias"
+    bottom: "relu3"
+    top: "shift3"
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    bias_param {
+      filler {
+        type: "constant"
+        value: -0.2
+      }
+    }
+  }
+  layer {
+    name: "conv4"
+    type: "Convolution"
+    bottom: "shift3"
+    top: "conv4"
+    param {
+      lr_mult: 1
+      decay_mult: 1
+    }
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    convolution_param {
+      num_output: 384
+      pad: 1
+      kernel_size: 3
+      group: 2
+      weight_filler {
+        type: "gaussian"
+        std: 0.01
+      }
+      bias_filler {
+        type: "constant"
+      }
+    }
+  }
+  layer {
+    name: "relu4"
+    type: "ReLU"
+    bottom: "conv4"
+    top: "relu4"
+  }
+  layer {
+    name: "shift4"
+    type: "Bias"
+    bottom: "relu4"
+    top: "shift4"
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    bias_param {
+      filler {
+        type: "constant"
+        value: -0.2
+      }
+    }
+  }
+  layer {
+    name: "conv5"
+    type: "Convolution"
+    bottom: "shift4"
+    top: "conv5"
+    param {
+      lr_mult: 1
+      decay_mult: 1
+    }
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    convolution_param {
+      num_output: 256
+      pad: 1
+      kernel_size: 3
+      group: 2
+      weight_filler {
+        type: "gaussian"
+        std: 0.01
+      }
+      bias_filler {
+        type: "constant"
+      }
+    }
+  }
+  layer {
+    name: "relu5"
+    type: "ReLU"
+    bottom: "conv5"
+    top: "relu5"
+  }
+  layer {
+    name: "shift5"
+    type: "Bias"
+    bottom: "relu5"
+    top: "shift5"
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    bias_param {
+      filler {
+        type: "constant"
+        value: -0.2
+      }
+    }
+  }
+  layer {
+    name: "pool5"
+    type: "Pooling"
+    bottom: "shift5"
+    top: "pool5"
+    pooling_param {
+      pool: MAX
+      kernel_size: 3
+      stride: 2
+    }
+  }
+  layer {
+    name: "fc6"
+    type: "InnerProduct"
+    bottom: "pool5"
+    top: "fc6"
+    param {
+      lr_mult: 1
+      decay_mult: 1
+    }
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    inner_product_param {
+      num_output: 2048
+      weight_filler {
+        type: "gaussian"
+        std: 0.005
+      }
+      bias_filler {
+        type: "constant"
+      }
+    }
+  }
+  layer {
+    name: "relu6"
+    type: "ReLU"
+    bottom: "fc6"
+    top: "relu6"
+  }
+  layer {
+    name: "shift6"
+    type: "Bias"
+    bottom: "relu6"
+    top: "shift6"
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    bias_param {
+      filler {
+        type: "constant"
+        value: -0.2
+      }
+    }
+  }
+  layer {
+    name: "drop6"
+    type: "Dropout"
+    bottom: "shift6"
+    top: "drop6"
+    dropout_param {
+      dropout_ratio: 0.5
+    }
+  }
+  layer {
+    name: "fc7"
+    type: "InnerProduct"
+    bottom: "drop6"
+    top: "fc7"
+    param {
+      lr_mult: 1
+      decay_mult: 1
+    }
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    inner_product_param {
+      num_output: 2048
+      weight_filler {
+        type: "gaussian"
+        std: 0.005
+      }
+      bias_filler {
+        type: "constant"
+      }
+    }
+  }
+  layer {
+    name: "relu7"
+    type: "ReLU"
+    bottom: "fc7"
+    top: "relu7"
+  }
+  layer {
+    name: "shift7"
+    type: "Bias"
+    bottom: "relu7"
+    top: "shift7"
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    bias_param {
+      filler {
+        type: "constant"
+        value: -0.2
+      }
+    }
+  }
+  layer {
+    name: "drop7"
+    type: "Dropout"
+    bottom: "shift7"
+    top: "drop7"
+    dropout_param {
+      dropout_ratio: 0.5
+    }
+  }
+  layer {
+    name: "fc8"
+    type: "InnerProduct"
+    bottom: "drop7"
+    top: "fc8"
+    param {
+      lr_mult: 1
+      decay_mult: 1
+    }
+    param {
+      lr_mult: 2
+      decay_mult: 0
+    }
+    inner_product_param {
+      num_output: 1000
+      weight_filler {
+        type: "gaussian"
+        std: 0.01
+      }
+      bias_filler {
+        type: "constant"
+      }
+    }
+  }
+  layer {
+    name: "accuracy"
+    type: "Accuracy"
+    bottom: "fc8"
+    bottom: "label"
+    top: "accuracy"
+    include {
+      phase: TEST
+    }
+  }
+  layer {
+    name: "loss"
+    type: "SoftmaxWithLoss"
+    bottom: "fc8"
+    bottom: "label"
+    top: "loss"
+  }
+}
+average_loss: 20
+iter_size: 1
+type: "SGD"

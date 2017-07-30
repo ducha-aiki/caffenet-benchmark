@@ -66,6 +66,8 @@ On-going evaluations with graphs:
 | [ELU](http://arxiv.org/abs/1511.07289) |0.485| 2.29| alpha=0.5|
 | (ELU+LReLU) / 2 |0.486| 2.28| alpha=1, slope=0.05|
 | [SELU = Scaled ELU](https://arxiv.org/abs/1706.02515) | 0.470 | 2.38 | 1.05070 * ELU(x,alpha = 1.6732) |
+| [FReLU = ReLU + (learned) bias](https://arxiv.org/abs/1706.08098) | 0.488 | 2.27 | |
+| [FELU = ELU + (learned) bias] | 0.489 | 2.28 | |
 | Shifted [Softplus](http://machinelearning.wustl.edu/mlpapers/papers/AISTATS2011_GlorotBB11) |0.486| 2.29| Shifted BNLL aka softplus, y = log(1 + exp(x)) - log(2). Same as ELU, as expected |
 | No, with max pooling |0.389 | 2.93 | No non-linearity |
 | No, no max pooling |0.035 | 6.28 | No non-linearity, strided convolution |
